@@ -1,0 +1,1020 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hamilton"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="theme-color" content="#14213d"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icons/apple-touch-icon.png"><link rel="icon" href="icons/icon-192.png">
+<style>@font-face{font-family:Bangers;src:url(fonts/bangers-latin-400-normal.woff2) format("woff2");font-display:swap}@font-face{font-family:"Comic Neue";font-weight:400;src:url(fonts/comic-neue-latin-400-normal.woff2) format("woff2");font-display:swap}@font-face{font-family:"Comic Neue";font-weight:700;src:url(fonts/comic-neue-latin-700-normal.woff2) format("woff2");font-display:swap}
+html,body{-webkit-touch-callout:none;-webkit-text-size-adjust:100%}#bar{padding-top:max(0px,env(safe-area-inset-top))}#nav{padding-bottom:max(0px,env(safe-area-inset-bottom))}</style><title>Alexander Hamilton: The Graphic Novel &amp; Workbook</title>
+
+<style>*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#14213d;color:#222;font-family:'Comic Neue','Comic Sans MS','Segoe UI',sans-serif;-webkit-text-size-adjust:100%}
+body{min-height:100vh;display:flex;flex-direction:column;background:radial-gradient(circle at 50% 0,#27406e,#0f1a33 70%)}
+#bar{display:flex;gap:8px;align-items:center;justify-content:space-between;padding:8px 10px;background:#0b1428;color:#f4e9c8;font-weight:700;position:sticky;top:0;z-index:20;flex-wrap:wrap}
+#bar .ttl{font-family:'Bangers',Impact,sans-serif;letter-spacing:1.5px;font-size:20px;color:#ffd24a}
+#bar select,#bar button{font:inherit;font-size:14px;padding:5px 8px;border-radius:8px;border:2px solid #ffd24a;background:#14213d;color:#f4e9c8;cursor:pointer;max-width:48vw}
+#stars{color:#ffd24a;font-size:16px}
+#stage{flex:1;display:flex;justify-content:center;padding:8px 0}
+#pbox{position:relative}
+.page{width:500px;height:680px;transform-origin:top left;position:absolute;left:0;top:0;background:#fbf4e1;border-radius:6px;box-shadow:0 10px 40px rgba(0,0,0,.5);overflow:hidden;color:#222}
+.pgnum{position:absolute;bottom:6px;left:0;right:0;text-align:center;font-size:12px;font-weight:700;color:#7a6a4a;z-index:5}
+#nav{display:flex;justify-content:center;gap:12px;padding:8px;background:#0b1428;position:sticky;bottom:0;z-index:20}
+#nav button{font-family:'Bangers',Impact,sans-serif;font-size:22px;letter-spacing:1px;padding:6px 26px;border-radius:12px;border:3px solid #ffd24a;background:#c0392b;color:#fff;cursor:pointer}
+#nav button:disabled{opacity:.35;cursor:default}
+#pn{color:#f4e9c8;align-self:center;font-weight:700;min-width:110px;text-align:center}
+.pagebg{position:absolute;inset:0;background:#fbf4e1}
+.panel{position:absolute;border:3px solid #111;background:#fff;overflow:hidden;border-radius:3px}
+.panel .art{position:absolute;inset:0}.panel .art svg{display:block}
+.ov{position:absolute;left:0;right:0;top:0;padding:5px;z-index:3;font-size:12.5px;line-height:1.22;font-weight:700}
+.cap{background:#ffe27a;border:2px solid #111;padding:4px 7px;margin-bottom:5px;box-shadow:2px 2px 0 rgba(0,0,0,.35);font-weight:700;color:#222}
+.bub{position:relative;display:block;width:fit-content;max-width:64%;background:#fff;border:2px solid #111;border-radius:14px;padding:4px 8px;margin-bottom:9px;color:#111}
+.bub:after{content:'';position:absolute;left:var(--tx,50%);bottom:-9px;margin-left:-7px;border:7px solid transparent;border-top:9px solid #111;border-bottom:0}
+.bub:before{content:'';position:absolute;left:var(--tx,50%);bottom:-6px;margin-left:-5px;border:5px solid transparent;border-top:7px solid #fff;border-bottom:0;z-index:2}
+.bub.th{border-style:dashed;border-radius:20px;background:#f0f6ff}
+.gw{color:#b3202a;border-bottom:2px dotted #b3202a}
+.sfx{position:absolute;font-family:'Bangers',Impact,sans-serif;font-size:34px;color:#ffe14a;-webkit-text-stroke:2px #b3202a;text-shadow:3px 3px 0 #111;letter-spacing:2px;z-index:4;white-space:nowrap}
+.open .opentxt{position:absolute;left:12px;right:12px;bottom:12px;z-index:5;background:rgba(251,244,225,.94);border:3px solid #111;padding:10px 12px;border-radius:4px}
+.chn{font-family:'Bangers',Impact;letter-spacing:3px;color:#b3202a;font-size:15px}
+.cht{font-family:'Bangers',Impact;font-size:34px;line-height:1.02;color:#14213d;letter-spacing:1px}
+.chy{font-weight:700;color:#7a6a4a;font-size:13px;margin:2px 0 4px}
+.chb{font-size:13.5px;line-height:1.28;font-weight:700}
+.wb,.fr{position:absolute;inset:0;padding:14px 16px 26px;display:flex;flex-direction:column}
+.wb{background:linear-gradient(#fbf4e1,#f6ecce)}
+.wbh{display:flex;justify-content:space-between;align-items:baseline;border-bottom:4px solid #14213d;padding-bottom:4px;margin-bottom:8px}
+.wbt{font-family:'Bangers',Impact;font-size:22px;letter-spacing:1px;color:#14213d}.wbs{font-size:11px;font-weight:700;color:#b3202a;letter-spacing:2px}
+.wbody{overflow:auto;flex:1;padding-right:4px;font-size:13.5px;line-height:1.28}
+.wi{background:#fff;border:2px solid #14213d;border-radius:10px;padding:7px 9px;margin-bottom:8px;box-shadow:2px 2px 0 rgba(20,33,61,.25)}
+.wi.note{background:#fff3c4}.q{font-weight:700;margin-bottom:5px}
+.opt{display:block;width:100%;text-align:left;font:inherit;font-size:13px;padding:4px 8px;margin:3px 0;border:2px solid #9aa7c0;background:#f4f7ff;border-radius:8px;cursor:pointer}
+.opt:hover:not(:disabled){background:#e0ebff}.opt.good{background:#c8f0c8;border-color:#2f8f57}.opt.bad{background:#ffd6d6;border-color:#c0392b;opacity:.8}
+.tfrow{display:flex;gap:8px}.tfrow .opt{text-align:center;font-weight:700}
+.fb{font-size:12.5px;font-weight:700;color:#2f6b45;margin-top:3px;min-height:0}
+.ord{display:flex;gap:6px;align-items:center;margin:3px 0}.ord select{font:inherit;font-size:13px;padding:2px;border-radius:6px;border:2px solid #9aa7c0;min-width:44px}
+.mdefs{background:#f4f7ff;border-radius:6px;padding:4px 7px;margin-bottom:4px;font-size:12.5px}
+.chk,.mini{font:inherit;font-weight:700;font-size:12.5px;padding:3px 10px;margin-top:4px;border-radius:8px;border:2px solid #14213d;background:#ffd24a;cursor:pointer}
+.fin{font:inherit;font-size:13px;padding:3px 7px;border:2px solid #9aa7c0;border-radius:6px;width:55%}.fin.sm{width:110px}
+.wr{width:100%;font:inherit;font-size:13px;padding:5px 7px;border:2px solid #9aa7c0;border-radius:8px;background:#fffef8;resize:vertical}
+.vw{margin:2px 0}.scr{display:flex;gap:8px;align-items:center;margin:3px 0}.scw{font-family:'Bangers';letter-spacing:3px;font-size:18px;min-width:120px;color:#b3202a}.hint{font-size:12px;color:#666}
+.dr{width:100%;border:2px solid #14213d;border-radius:8px;background:#fffdf6;touch-action:none}.drt{display:flex;gap:6px;align-items:center;margin-top:3px}.sw{width:22px;height:22px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px #333;cursor:pointer}
+.ws{display:grid;gap:1px;max-width:330px;margin:4px auto;user-select:none}.ws i{font-style:normal;font-weight:700;text-align:center;background:#f4f7ff;border:1px solid #cfd8ea;padding:2px 0;font-size:14px;cursor:pointer;font-family:'Comic Neue',sans-serif}.ws i.on{background:#ffd24a}
+.wl{display:flex;flex-wrap:wrap;gap:5px;justify-content:center}.wl span{background:#eef2fb;border:1px solid #9aa7c0;border-radius:10px;padding:1px 8px;font-size:12px;font-weight:700;cursor:pointer}.wl span.found{text-decoration:line-through;background:#c8f0c8}
+.note2{font-size:11.5px;color:#666;text-align:center}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:6px}.fc{perspective:600px;min-height:76px;position:relative;cursor:pointer}
+.fcf,.fcb{position:absolute;inset:0;padding:5px 7px;border-radius:8px;border:2px solid #14213d;backface-visibility:hidden;transition:transform .4s;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;text-align:center}
+.fcf{background:#fff3c4}.fcb{background:#d8f0d8;transform:rotateY(180deg)}.fc.flip .fcf{transform:rotateY(180deg)}.fc.flip .fcb{transform:rotateY(0)}
+.cb{display:flex;gap:7px;align-items:flex-start;margin:3px 0;font-size:13px;cursor:pointer}.cb input{margin-top:3px;width:16px;height:16px}
+.fr h1{font-family:'Bangers';letter-spacing:2px;color:#14213d;font-size:30px;line-height:1.05}.fr h2{font-family:'Bangers';letter-spacing:1px;color:#b3202a;font-size:19px;margin:6px 0 2px}
+.fr p,.fr li{font-size:13.5px;line-height:1.3;margin:3px 0}.fr ul{padding-left:18px}
+.fr.cover{padding:0;background:linear-gradient(#14213d,#27406e 55%,#c0392b);color:#fff;align-items:center;text-align:center;justify-content:space-between}
+.cover .ct{padding:26px 20px 0}.cover .ct1{font-family:'Bangers';letter-spacing:4px;color:#ffd24a;font-size:20px}.cover .ct2{font-family:'Bangers';font-size:62px;line-height:.92;letter-spacing:2px;color:#fff;text-shadow:4px 4px 0 #b3202a;margin:8px 0}.cover .ct3{font-weight:700;font-size:16px;color:#f4e9c8}
+.cover svg{width:100%;flex:1;min-height:0}
+.cover .cb2{padding:8px 16px 22px;font-weight:700;font-size:13px;color:#f4e9c8}
+.cast{display:grid;grid-template-columns:1fr 1fr;gap:6px;overflow:auto}.cc{background:#fff;border:2px solid #14213d;border-radius:8px;padding:3px 6px;display:flex;gap:6px;align-items:center}.cc svg{flex:0 0 52px;height:78px;background:#e8f2fa;border-radius:6px}.cc .ci{font-size:11.5px;line-height:1.2}.cc .ci b{display:block;font-size:13px;color:#14213d}
+.tl{overflow:auto;flex:1}.te{display:flex;gap:8px;border-left:4px solid #b3202a;margin-left:6px;padding:2px 0 2px 8px;font-size:12.5px;line-height:1.22}.te b{min-width:48px;color:#14213d}.te.big{background:#fff3c4}
+.tbl{width:100%;border-collapse:collapse;font-size:12.5px}.tbl td,.tbl th{border:2px solid #14213d;padding:3px 6px;vertical-align:top}.tbl th{background:#14213d;color:#ffd24a;font-family:'Bangers';letter-spacing:1px;font-size:14px}
+.gl{overflow:auto;flex:1}.gl div{margin:3px 0;font-size:12.5px;line-height:1.22;padding:2px 6px;border-radius:6px;background:#fff;border:1px solid #cfd8ea}.gl b{color:#b3202a}
+.cert{background:#fffaf0;border:10px double #b8860b;margin:10px 10px 26px;align-items:center;text-align:center;justify-content:center;gap:8px}
+.cert h1{font-size:40px}.cert .big{font-family:'Bangers';font-size:34px;color:#b3202a}.cert input{font:inherit;font-size:22px;text-align:center;border:none;border-bottom:3px solid #14213d;background:transparent;width:80%}
+.tocl{display:block;padding:5px 9px;margin:4px 0;background:#fff;border:2px solid #14213d;border-radius:8px;font-weight:700;font-size:14px;cursor:pointer;text-align:left;font-family:inherit;width:100%}.tocl:hover{background:#fff3c4}
+@media (max-width:720px){#bar .ttl{font-size:16px}}
+
+.page.gem{background:#fbf4e1}.gimg{display:block;width:500px;height:680px;object-fit:fill;user-select:none;-webkit-user-drag:none}
+</style></head><body>
+<div id="bar"><span class="ttl">ALEXANDER HAMILTON</span><span id="stars">★ 0</span><span><button id="home">Cover</button> <button id="toc">Contents</button> <select id="sel"></select></span></div>
+<div id="stage"><div id="pbox"><div id="page" class="page"></div></div></div>
+<div id="nav"><button id="prev">◀ BACK</button><span id="pn"></span><button id="next">NEXT ▶</button></div>
+<script>/* ===== Scenes: parametric SVG backgrounds ===== */
+const RNG=(s)=>{let t=(s>>>0)||1;return()=>((t=(Math.imul(t,1664525)+1013904223)>>>0)/4294967296)};
+const sky=(id,a,b,W,h)=>`<defs><linearGradient id="s${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient></defs><rect width="${W}" height="${h}" fill="url(#s${id})"/>`;
+const rc=(x,y,w,h,f,e='')=>`<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${w.toFixed(1)}" height="${h.toFixed(1)}" fill="${f}" ${e}/>`;
+const ci=(x,y,r,f,e='')=>`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r.toFixed(1)}" fill="${f}" ${e}/>`;
+const pl=(p,f,e='')=>`<polygon points="${p}" fill="${f}" ${e}/>`;
+const pa=(d,f,e='')=>`<path d="${d}" fill="${f}" ${e}/>`;
+const ln=(x1,y1,x2,y2,c,w=2,e='')=>`<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="${c}" stroke-width="${w}" stroke-linecap="round" ${e}/>`;
+const el=(x,y,rx,ry,f,e='')=>`<ellipse cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" rx="${rx.toFixed(1)}" ry="${ry.toFixed(1)}" fill="${f}" ${e}/>`;
+const cloud=(x,y,s,f='#fff',o=.92)=>`<g opacity="${o}">${ci(x,y,12*s,f)}${ci(x+15*s,y-7*s,15*s,f)}${ci(x+32*s,y,12*s,f)}${rc(x,y-1*s,32*s,11*s,f)}${el(x+16*s,y+7*s,19*s,5*s,'#9db8d6','opacity=".35"')}${ci(x+12*s,y-11*s,6*s,'#fff','opacity=".7"')}</g>`;
+const stars=(W,H,r,n,lim)=>{let s='';for(let i=0;i<n;i++)s+=ci(r()*W,r()*H*lim,.6+r()*1.1,'#fff',`opacity="${.5+r()*.5}"`);return s};
+const palm=(x,y,h,lean=20)=>{const tx=x+lean,ty=y-h;let f='';[-170,-135,-100,-60,-25,10,45].forEach(a=>{const rad=a*Math.PI/180,l=h*.3;f+=el(tx+Math.cos(rad)*l*.9,ty+Math.sin(rad)*l*.55,l,h*.055,'#2f9e4f',`transform="rotate(${a} ${tx+Math.cos(rad)*l*.9} ${ty+Math.sin(rad)*l*.55})"`)});return `<path d="M${x} ${y} Q${x+lean*.2} ${y-h*.5} ${tx} ${ty}" stroke="#8a5a2b" stroke-width="${Math.max(4,h*.07)}" fill="none" stroke-linecap="round"/>${f}${ci(tx,ty+3,h*.04,'#6b4423')}`};
+const tree=(x,y,h,c='#3d8b3d')=>`${rc(x-h*.04,y-h*.35,h*.08,h*.35,'#6b4423')}${ci(x,y-h*.55,h*.28,c)}${ci(x-h*.15,y-h*.42,h*.2,c)}${ci(x+h*.15,y-h*.42,h*.2,c)}`;
+const bare=(x,y,h)=>`<g stroke="#4a3a2a" stroke-linecap="round" fill="none">${ln(x,y,x,y-h,'#4a3a2a',h*.06)}${ln(x,y-h*.5,x-h*.22,y-h*.8,'#4a3a2a',h*.035)}${ln(x,y-h*.62,x+h*.24,y-h*.9,'#4a3a2a',h*.035)}${ln(x,y-h*.8,x-h*.1,y-h*1.02,'#4a3a2a',h*.025)}</g>`;
+const house=(x,y,w,h,c,roof='#5a3a30',win='#ffe9a8')=>{let s=rc(x,y-h,w,h,c)+pl(`${x-4},${y-h} ${x+w/2},${y-h-h*.28} ${x+w+4},${y-h}`,roof);const cols=Math.max(2,Math.round(w/26)),rows=Math.max(2,Math.round(h/36));for(let i=0;i<cols;i++)for(let j=0;j<rows;j++)s+=rc(x+8+i*(w-16)/cols+2,y-h+10+j*(h-14)/rows,Math.min(11,(w-16)/cols-6),12,win,'stroke="#3a2a20" stroke-width="1"');return s+rc(x+w/2-6,y-18,12,18,'#4a2f20')};
+const ship=(x,y,s,sail='#f4ecd8',hull='#5b3a24')=>`<g>${pa(`M${x-40*s} ${y} L${x+44*s} ${y} L${x+32*s} ${y+14*s} L${x-28*s} ${y+14*s} Z`,hull)}${ln(x,y,x,y-70*s,'#3a2a1a',2.5*s)}${pa(`M${x+3*s} ${y-66*s} Q${x+34*s} ${y-40*s} ${x+3*s} ${y-8*s} Z`,sail)}${pa(`M${x-3*s} ${y-60*s} Q${x-28*s} ${y-38*s} ${x-3*s} ${y-10*s} Z`,sail)}${ln(x,y-70*s,x+16*s,y-66*s,'#b32d2d',2*s)}</g>`;
+const flagUS=(x,y,w)=>{let s=ln(x,y,x,y-w*1.6,'#6b4423',2.5);const fx=x,fy=y-w*1.6,h=w*.7;for(let i=0;i<7;i++)s+=rc(fx,fy+i*h/7,w,h/7+.3,i%2?'#fff':'#c0392b');return s+rc(fx,fy,w*.42,h*4/7,'#2a3f8f')+`<g fill="#fff">${[0,1,2].map(a=>[0,1,2].map(b=>ci(fx+w*.07+b*w*.13,fy+h*.1+a*h*.17,1.1,'#fff')).join('')).join('')}</g>`};
+const smoke=(W,H,r,n,col='#cfc7c0')=>{let s='';for(let i=0;i<n;i++)s+=ci(r()*W,H*(.35+r()*.35),12+r()*22,col,`opacity="${.35+r()*.3}"`);return s};
+const win=(x,y,w,h,view='#9fd8f2')=>`${rc(x-4,y-4,w+8,h+8,'#6b4a2f')}${rc(x,y,w,h,view)}${ln(x+w/2,y,x+w/2,y+h,'#6b4a2f',3)}${ln(x,y+h/2,x+w,y+h/2,'#6b4a2f',3)}`;
+const floorW=(W,H,y,c1='#a9703f',c2='#8a5a30')=>{let s=rc(0,y,W,H-y,c1);for(let i=0;i<8;i++)s+=ln(0,y+(H-y)*i/8,W,y+(H-y)*i/8,c2,1.2,'opacity=".6"');return s};
+const col=(x,y,h,w,c='#efe6d4')=>rc(x,y,w,h,c)+rc(x-w*.15,y,w*1.3,h*.05,c,'stroke="#cfc3a8" stroke-width="1"')+rc(x-w*.15,y+h*.95,w*1.3,h*.05,c,'stroke="#cfc3a8" stroke-width="1"');
+const waves=(W,y,h,c,r,n=14)=>{let s='';for(let i=0;i<n;i++){const x=r()*W,yy=y+r()*h;s+=`<path d="M${x} ${yy} q6 -5 12 0 t12 0" stroke="${c}" stroke-width="1.6" fill="none" opacity=".8"/>`}return s};
+const lightning=(x,y,s)=>pl(`${x},${y} ${x-10*s},${y+30*s} ${x},${y+28*s} ${x-14*s},${y+70*s} ${x+16*s},${y+22*s} ${x+4*s},${y+24*s} ${x+14*s},${y}`,'#fff7a8','stroke="#ffd43b" stroke-width="1.5"');
+
+const SCENES={
+nevis:(W,H,r,id,v)=>sky(id,'#6ccdf3','#dff6ff',W,H*.62)+ci(W*.82,H*.17,H*.08,'#ffe27a')+cloud(W*.12,H*.16,H/220)+cloud(W*.52,H*.1,H/260)+pa(`M${W*.12} ${H*.62} Q${W*.36} ${H*.06} ${W*.66} ${H*.62} Z`,'#4f9a5b')+pa(`M${W*.3} ${H*.62} Q${W*.4} ${H*.2} ${W*.66} ${H*.62} Z`,'#3d8a4c')+cloud(W*.3,H*.2,H/300,'#fff',.8)+rc(0,H*.58,W,H*.16,'#2fb4c9')+waves(W,H*.6,H*.12,'#bff0f5',r)+rc(0,H*.72,W,H*.28,'#f2d9a0')+waves(W,H*.78,H*.2,'#e3c585',r,8)+palm(W*.08,H*.8,Math.min(H*.62,W*.75),22)+palm(W*.93,H*.82,Math.min(H*.55,W*.65),-26),
+harbor:(W,H,r,id,v)=>sky(id,'#ffb88a','#ffe8c8',W,H*.55)+ci(W*.75,H*.38,H*.1,'#fff1b8')+rc(0,H*.52,W,H*.22,'#3b8fa8')+waves(W,H*.54,H*.2,'#bfe6ee',r)+ship(W*.25,H*.55,H/150)+ship(W*.7,H*.5,H/190,'#efe2c4')+rc(0,H*.72,W,H*.28,'#9a7448')+Array.from({length:9},(_,i)=>ln(0,H*.74+i*H*.03,W,H*.74+i*H*.03,'#7d5a35',1.4)).join('')+[.12,.5,.88].map(x=>rc(W*x,H*.62,8,H*.14,'#4a3320')).join('')+rc(W*.62,H*.8,36,26,'#8a5a30','stroke="#5a3a1a" stroke-width="2"')+rc(W*.7,H*.84,28,22,'#a06f3a','stroke="#5a3a1a" stroke-width="2"'),
+office:(W,H,r,id,v)=>rc(0,0,W,H,'#e0c595')+rc(0,H*.62,W,H*.04,'#8a5a30')+floorW(W,H,H*.66)+win(W*.08,H*.14,W*.22,H*.34)+[0,1,2].map(i=>rc(W*.5,H*.1+i*H*.17,W*.44,H*.13,'#6b4a2f')+[0,1,2,3,4,5].map(j=>rc(W*.52+j*W*.07,H*.115+i*H*.17,W*.05,H*.1,['#7a2f2f','#2f5d7a','#2f7a4d','#8a6d2f'][(i+j)%4])).join('')).join('')+rc(W*.1,H*.64,W*.5,H*.07,'#7a4f2a')+rc(W*.14,H*.7,6,H*.18,'#6a3f1f')+rc(W*.54,H*.7,6,H*.18,'#6a3f1f')+rc(W*.2,H*.6,W*.1,H*.04,'#2f7a4d')+rc(W*.34,H*.6,W*.08,H*.04,'#7a2f2f'),
+storm:(W,H,r,id,v)=>sky(id,'#2b3a4a','#5d7a8a',W,H*.7)+[0,1,2,3].map(i=>cloud(W*(.05+i*.25),H*(.08+r()*.1),H/130,'#3d4f5e',.95)).join('')+lightning(W*.7,H*.04,H/130)+rc(0,H*.6,W,H*.4,'#274c5c')+waves(W,H*.62,H*.36,'#a9c9d6',r,22)+palm(W*.12,H*.9,H*.6,-45)+palm(W*.9,H*.95,H*.5,50)+Array.from({length:60},()=>{const x=r()*W,y=r()*H;return ln(x,y,x-6,y+16,'#cfe4ee',1.1,'opacity=".55"')}).join(''),
+ship:(W,H,r,id,v)=>sky(id,'#8fd0f0','#eaf8ff',W,H*.55)+cloud(W*.15,H*.15,H/240)+cloud(W*.6,H*.25,H/200)+rc(0,H*.5,W,H*.5,'#2a77a8')+waves(W,H*.52,H*.3,'#a8dcef',r,16)+rc(0,H*.78,W,H*.22,'#a9703f')+Array.from({length:6},(_,i)=>ln(0,H*.8+i*H*.04,W,H*.8+i*H*.04,'#8a5a30',1.4)).join('')+ln(W*.5,H*.78,W*.5,H*.02,'#5a3a1f',6)+pa(`M${W*.52} ${H*.06} Q${W*.92} ${H*.3} ${W*.52} ${H*.56} Z`,'#f6efdc','stroke="#d8cfb5" stroke-width="1.5"')+rc(0,H*.74,W,H*.04,'#7a4a24')+[.04,.2,.36,.64,.8,.96].map(x=>rc(W*x,H*.62,5,H*.14,'#7a4a24')).join(''),
+city:(W,H,r,id,v)=>sky(id,'#9ed6f2','#e8f6ff',W,H*.6)+cloud(W*.2,H*.12,H/250)+cloud(W*.7,H*.2,H/220)+[[.0,.62,.2,.34,'#a5503e'],[.22,.62,.16,.46,'#c26b4d'],[.4,.62,.2,.3,'#8c4a3a'],[.62,.62,.18,.4,'#b25d45'],[.82,.62,.2,.34,'#9a4e3c']].map(b=>house(W*b[0],H*b[1],W*b[2],H*b[3],b[4])).join('')+rc(0,H*.62,W,H*.38,'#a49a8e')+Array.from({length:50},()=>{const x=r()*W,y=H*.64+r()*H*.34;return ci(x,y,3+r()*4,'#8f857a')}).join('')+rc(W*.58,H*.3,5,H*.34,'#2a2a2a')+rc(W*.55,H*.28,12,10,'#ffe9a8','stroke="#2a2a2a" stroke-width="2"'),
+college:(W,H,r,id,v)=>sky(id,'#9ed6f2','#f0fbff',W,H*.6)+cloud(W*.1,H*.12,H/240)+rc(W*.14,H*.32,W*.72,H*.3,'#b86b4f')+pl(`${W*.12},${H*.32} ${W*.5},${H*.16} ${W*.88},${H*.32}`,'#6b4a3a')+rc(W*.43,H*.04,W*.14,H*.14,'#efe6d4')+pl(`${W*.42},${H*.04} ${W*.5},${-H*.02} ${W*.58},${H*.04}`,'#2a3f8f')+Array.from({length:6},(_,i)=>rc(W*(.19+i*.115),H*.38,W*.06,H*.12,'#ffe9a8','stroke="#4a2f20" stroke-width="1.5"')).join('')+col(W*.46,H*.4,H*.22,W*.03)+col(W*.51,H*.4,H*.22,W*.03)+rc(0,H*.62,W,H*.38,'#5fae4f')+rc(W*.44,H*.62,W*.12,H*.38,'#d9c9a0')+tree(W*.06,H*.82,H*.5)+tree(W*.94,H*.84,H*.55),
+boston:(W,H,r,id,v)=>sky(id,'#0f1f3d','#2f4a78',W,H*.6)+stars(W,H,r,50,.5)+ci(W*.8,H*.18,H*.07,'#fff7d6')+rc(0,H*.55,W,H*.45,'#16335a')+waves(W,H*.58,H*.4,'#4a6fa5',r,18)+ship(W*.25,H*.6,H/130,'#cfc7b0','#2d1d12')+ship(W*.65,H*.58,H/150,'#cfc7b0','#2d1d12')+rc(0,H*.82,W,H*.18,'#3a2a1c')+rc(W*.7,H*.76,34,26,'#5a3a1a','stroke="#2a1a0a" stroke-width="2"'),
+battle:(W,H,r,id,v)=>sky(id,'#d48c5a','#f1d9a8',W,H*.6)+smoke(W,H,r,10,'#8f8a86')+pa(`M0 ${H*.62} Q${W*.3} ${H*.45} ${W*.55} ${H*.6} T${W} ${H*.58} L${W} ${H} L0 ${H} Z`,'#6f8a4a')+rc(0,H*.72,W,H*.28,'#7a6a3f')+Array.from({length:12},(_,i)=>{const x=W*(.04+i*.08),y=H*.62+((i*7)%3)*4;return ln(x,y,x,y-14,'#2a2a3a',2)+ci(x,y-17,3,'#2a2a3a')}).join('')+flagUS(W*.15,H*.62,22)+flagUS(W*.85,H*.6,20)+smoke(W,H,r,6,'#6f6a66'),
+winter:(W,H,r,id,v)=>sky(id,'#b9c7d6','#eef3f8',W,H*.6)+rc(0,H*.55,W,H*.45,'#f5f8fb')+[.15,.45,.8].map((x,i)=>pl(`${W*x-34},${H*.72} ${W*x},${H*(.5-i*.03)} ${W*x+34},${H*.72}`,'#d9cfb4','stroke="#8a7a5a" stroke-width="2"')+pl(`${W*x-8},${H*.72} ${W*x},${H*(.56-i*.03)} ${W*x+8},${H*.72}`,'#4a3a2a')).join('')+bare(W*.04,H*.85,H*.5)+bare(W*.62,H*.8,H*.42)+bare(W*.95,H*.86,H*.52)+Array.from({length:50},()=>ci(r()*W,r()*H,1+r()*1.6,'#fff')).join('')+(v==='fire'?el(W*.5,H*.9,18,8,'#e8e8e8')+pl(`${W*.5-10},${H*.9} ${W*.5},${H*.74} ${W*.5+10},${H*.9}`,'#ff8a1e')+pl(`${W*.5-5},${H*.9} ${W*.5},${H*.8} ${W*.5+5},${H*.9}`,'#ffd43b'):''),
+room:(W,H,r,id,v)=>rc(0,0,W,H,v==='cool'?'#c7d3e0':v==='green'?'#cfe0c6':'#e6c9a0')+rc(0,H*.55,W,H*.07,'#7a4f2a')+rc(0,H*.62,W,H*.38,'#a8683c')+floorW(W,H,H*.64,'#a8683c','#86502a')+win(W*.1,H*.12,W*.2,H*.32,v==='night'?'#1c2a4a':'#a5dcf5')+rc(W*.07,H*.08,W*.06,H*.42,'#b33a3a')+rc(W*.27,H*.08,W*.06,H*.42,'#b33a3a')+rc(W*.55,H*.16,W*.16,H*.24,'#8a5a30')+rc(W*.57,H*.19,W*.12,H*.18,'#d9cfa8')+rc(W*.78,H*.12,W*.14,H*.3,'#8a5a30')+rc(W*.8,H*.15,W*.1,H*.24,'#3a5a7a')+rc(W*.6,H*.66,W*.34,H*.06,'#7a4a24')+rc(W*.63,H*.72,5,H*.2,'#5a3418')+rc(W*.89,H*.72,5,H*.2,'#5a3418')+rc(W*.7,H*.58,3,H*.08,'#f4ecd8')+ci(W*.7+1.5,H*.575,3.2,'#ffb02e')+ci(W*.7+1.5,H*.575,9,'#ffd980','opacity=".35"'),
+hall:(W,H,r,id,v)=>rc(0,0,W,H,'#e9dfc6')+[.04,.27,.5,.73].map(x=>rc(W*x,H*.08,W*.2,H*.5,'#a9dcf0','stroke="#6b4a2f" stroke-width="4"')+pa(`M${W*x} ${H*.08} Q${W*(x+.1)} ${-H*.08} ${W*(x+.2)} ${H*.08}`,'#e9dfc6','stroke="#6b4a2f" stroke-width="4"')+ln(W*(x+.1),H*.08,W*(x+.1),H*.58,'#6b4a2f',3)).join('')+rc(0,H*.58,W,H*.04,'#b09a70')+rc(0,H*.62,W,H*.38,'#8a6a45')+Array.from({length:10},(_,i)=>ln(0,H*.64+i*H*.04,W,H*.64+i*H*.04,'#6f5232',1.2)).join('')+rc(W*.1,H*.66,W*.8,H*.07,'#2f6b45')+rc(W*.12,H*.73,5,H*.2,'#5a3a1f')+rc(W*.86,H*.73,5,H*.2,'#5a3a1f'),
+river:(W,H,r,id,v)=>sky(id,'#10203a','#40587a',W,H*.5)+stars(W,H,r,45,.45)+rc(0,H*.45,W,H*.55,'#2b4a6a')+waves(W,H*.5,H*.45,'#7fa3c4',r,18)+Array.from({length:7},()=>{const x=r()*W,y=H*.55+r()*H*.4,w=26+r()*40;return pl(`${x},${y} ${x+w},${y-3} ${x+w*1.2},${y+8} ${x+w*.3},${y+12}`,'#e8f2fa','opacity=".92"')}).join('')+pa(`M0 ${H*.45} Q${W*.3} ${H*.38} ${W*.6} ${H*.44} T${W} ${H*.42} L${W} ${H*.5} L0 ${H*.5} Z`,'#e8eef4')+Array.from({length:60},()=>ci(r()*W,r()*H,1+r()*1.5,'#fff','opacity=".8"')).join(''),
+redoubt:(W,H,r,id,v)=>sky(id,'#120f2a','#5a2f4a',W,H*.7)+stars(W,H,r,30,.35)+smoke(W,H,r,8,'#6a5a66')+pa(`M0 ${H*.66} L${W*.2} ${H*.58} L${W*.4} ${H*.62} L${W*.6} ${H*.55} L${W*.8} ${H*.6} L${W} ${H*.56} L${W} ${H} L0 ${H} Z`,'#1e1a24')+Array.from({length:12},(_,i)=>{const x=W*(.05+i*.082);return rc(x,H*.58,5,H*.1,'#3a2f3a')+pl(`${x},${H*.58} ${x+2.5},${H*.5} ${x+5},${H*.58}`,'#cfd3da')}).join('')+pl(`${W*.7},${H*.38} ${W*.74},${H*.3} ${W*.78},${H*.38} ${W*.86},${H*.4} ${W*.78},${H*.44} ${W*.76},${H*.52} ${W*.72},${H*.44} ${W*.64},${H*.42}`,'#ffd43b','opacity=".9"')+pl(`${W*.72},${H*.4} ${W*.74},${H*.35} ${W*.76},${H*.4} ${W*.8},${H*.41} ${W*.76},${H*.44} ${W*.74},${H*.48} ${W*.73},${H*.44} ${W*.68},${H*.42}`,'#ff7a1e'),
+palace:(W,H,r,id,v)=>rc(0,0,W,H,'#6b1f2a')+rc(W*.08,0,W*.16,H*.7,'#8e2a38')+rc(W*.76,0,W*.16,H*.7,'#8e2a38')+pa(`M${W*.08} 0 Q${W*.2} ${H*.2} ${W*.24} 0`,'#b33a48')+pa(`M${W*.76} 0 Q${W*.8} ${H*.2} ${W*.92} 0`,'#b33a48')+rc(W*.38,H*.2,W*.24,H*.5,'#d9a62e','stroke="#9a6f10" stroke-width="3"')+rc(W*.41,H*.26,W*.18,H*.3,'#8e2a38')+rc(0,H*.7,W,H*.3,'#e8dcc0')+Array.from({length:8},(_,i)=>Array.from({length:4},(_,j)=>rc(W*i/8,H*.7+j*H*.075,W/16,H*.075,(i+j)%2?'#2a2a2a':'#e8dcc0')).join('')).join('')+ci(W*.5,H*.1,H*.04,'#ffe27a')+ln(W*.5,0,W*.5,H*.06,'#b8860b',2),
+dawn:(W,H,r,id,v)=>sky(id,'#f4a56b','#ffe3b8',W,H*.6)+ci(W*.7,H*.45,H*.1,'#fff1b8')+rc(0,H*.5,W,H*.2,'#7fa3c4')+waves(W,H*.52,H*.16,'#d6e6f2',r,10)+pa(`M0 ${H*.58} Q${W*.2} ${H*.46} ${W*.45} ${H*.58} L${W*.45} ${H*.7} L0 ${H*.7} Z`,'#4a6a4a','opacity=".7"')+rc(0,H*.7,W,H*.3,'#6f9a4a')+tree(W*.1,H*.82,H*.7,'#2f6a3a')+tree(W*.92,H*.84,H*.62,'#2f6a3a')+Array.from({length:3},(_,i)=>el(W*(.2+i*.28),H*.72,W*.18,H*.03,'#fff','opacity=".4"')).join(''),
+mansion:(W,H,r,id,v)=>sky(id,'#9ed6f2','#f0fbff',W,H*.6)+cloud(W*.15,H*.14,H/240)+rc(W*.2,H*.28,W*.6,H*.36,'#c0725a')+pl(`${W*.17},${H*.28} ${W*.5},${H*.1} ${W*.83},${H*.28}`,'#4a4a5a')+Array.from({length:5},(_,i)=>Array.from({length:2},(_,j)=>rc(W*(.25+i*.11),H*(.34+j*.14),W*.06,H*.09,'#ffe9a8','stroke="#4a2f20" stroke-width="1.5"')).join('')).join('')+rc(W*.46,H*.5,W*.08,H*.14,'#4a2f20')+col(W*.42,H*.4,H*.24,W*.02)+col(W*.56,H*.4,H*.24,W*.02)+rc(0,H*.62,W,H*.38,'#5fae4f')+rc(W*.42,H*.64,W*.16,H*.36,'#d9c9a0')+tree(W*.07,H*.84,H*.55)+tree(W*.94,H*.82,H*.6),
+federal:(W,H,r,id,v)=>sky(id,'#a8dcf2','#f2fbff',W,H*.62)+cloud(W*.12,H*.15,H/250)+cloud(W*.75,H*.1,H/280)+pl(`${W*.14},${H*.3} ${W*.5},${H*.08} ${W*.86},${H*.3}`,'#e9e0cc','stroke="#bfb393" stroke-width="2"')+rc(W*.14,H*.3,W*.72,H*.05,'#e9e0cc','stroke="#bfb393" stroke-width="2"')+[0,1,2,3,4].map(i=>col(W*(.2+i*.14),H*.36,H*.3,W*.05)).join('')+rc(W*.14,H*.66,W*.72,H*.03,'#d6ccb2')+rc(W*.1,H*.69,W*.8,H*.03,'#cfc5a8')+rc(0,H*.72,W,H*.28,'#bdb5a5')+flagUS(W*.5,H*.1,24),
+church:(W,H,r,id,v)=>sky(id,'#f2a46a','#ffe0b8',W,H*.6)+ci(W*.2,H*.3,H*.08,'#fff1b8')+rc(W*.5,H*.3,W*.3,H*.34,'#a58a6a')+rc(W*.58,H*.12,W*.14,H*.2,'#b59a7a')+pl(`${W*.57},${H*.12} ${W*.65},${-H*.04} ${W*.73},${H*.12}`,'#4a5a6a')+rc(W*.62,H*.38,W*.06,H*.12,'#2a2a3a')+rc(0,H*.62,W,H*.38,'#6a8a4a')+[.1,.25,.4,.85].map((x,i)=>rc(W*x,H*(.66+(i%2)*.04),W*.05,H*.1,'#b9b2a6','stroke="#8a8478" stroke-width="1.5"')+el(W*x+W*.025,H*(.66+(i%2)*.04),W*.025,H*.02,'#b9b2a6')).join(''),
+night:(W,H,r,id,v)=>sky(id,'#0c1630','#2c3f6e',W,H,)+stars(W,H,r,60,.8)+ci(W*.2,H*.2,H*.07,'#fff7d6')+rc(0,H*.82,W,H*.18,'#1a2438'),
+sunset:(W,H,r,id,v)=>sky(id,'#5b3a7a','#ffb36b',W,H*.7)+ci(W*.5,H*.62,H*.12,'#ffe27a')+rc(0,H*.7,W,H*.3,'#3a2a4a')+cloud(W*.1,H*.2,H/220,'#f2c6d0',.7)+cloud(W*.62,H*.3,H/180,'#f2c6d0',.7),
+paper:(W,H,r,id,v)=>rc(0,0,W,H,'#eddcb2')+Array.from({length:20},()=>ci(r()*W,r()*H,2+r()*9,'#d9c59a','opacity=".35"')).join('')+rc(0,H*.88,W,H*.12,'#d9c59a','opacity=".5"'),
+bank:(W,H,r,id,v)=>rc(0,0,W,H,'#efe6cc')+[.08,.3,.7,.92].map(x=>col(W*x-W*.025,H*.06,H*.58,W*.05,'#f7f1e0')).join('')+rc(0,H*.64,W,H*.36,'#b79b6a')+Array.from({length:6},(_,i)=>Array.from({length:2},(_,j)=>rc(W*i/6,H*.64+j*H*.18,W/12,H*.18,(i+j)%2?'#a58957':'#c9ad7c')).join('')).join('')+rc(W*.36,H*.5,W*.28,H*.15,'#7a4f2a')+Array.from({length:6},(_,i)=>el(W*(.4+i*.035),H*.5,W*.014,H*.01,'#ffd43b')).join('')+ci(W*.5,H*.3,H*.07,'#ffd43b','stroke="#b8860b" stroke-width="3"'),
+farm:(W,H,r,id,v)=>sky(id,'#9ed6f2','#f0fbff',W,H*.6)+cloud(W*.2,H*.14,H/240)+pa(`M0 ${H*.58} Q${W*.3} ${H*.45} ${W*.6} ${H*.58} T${W} ${H*.55} L${W} ${H} L0 ${H} Z`,'#8ab85a')+pa(`M0 ${H*.7} Q${W*.4} ${H*.6} ${W} ${H*.72} L${W} ${H} L0 ${H} Z`,'#6fa045')+rc(W*.65,H*.42,W*.2,H*.2,'#a5503e')+pl(`${W*.63},${H*.42} ${W*.75},${H*.3} ${W*.87},${H*.42}`,'#5a3a30')+rc(W*.71,H*.5,W*.08,H*.12,'#4a2f20')+Array.from({length:5},(_,i)=>ln(W*(.05+i*.1),H*.78,W*(.05+i*.1),H*.68,'#7a5a30',3)).join('')+ln(W*.05,H*.7,W*.45,H*.7,'#7a5a30',2.5)
+};
+function drawScene(name,W,H,seed){const [n,v]=(name||'night').split(':');const f=SCENES[n]||SCENES.night;const r=RNG(seed*7919+n.length*131);return f(W,H,r,seed,v||'')}
+
+const LIGHT={nevis:[.82,.17,'#fff3b0'],harbor:[.75,.38,'#ffe0b0'],dawn:[.7,.45,'#fff0c0'],sunset:[.5,.62,'#ffd9a0'],church:[.2,.3,'#fff0c0'],battle:[.5,0,'#ffe0b0'],federal:[.25,0,'#fff6d0'],mansion:[.25,0,'#fff6d0'],college:[.25,0,'#fff6d0'],city:[.25,0,'#fff6d0'],farm:[.3,.05,'#fff6d0'],ship:[.25,.05,'#fff6d0'],room:[.2,.25,'#ffe9b0'],office:[.2,.25,'#ffe9b0'],hall:[.3,.2,'#fff0c0'],palace:[.5,.1,'#ffe9b0'],bank:[.5,.1,'#ffe9b0'],boston:[.8,.18,'#cfe0ff'],night:[.2,.2,'#cfe0ff'],river:[.5,.1,'#cfe0ff'],redoubt:[.74,.4,'#ffc080'],storm:[.7,.05,'#e8f0ff'],winter:[.3,0,'#f0f6ff']};
+function post(name,W,H,id,seed,fx){const n=(name||'night').split(':')[0];const L=LIGHT[n]||[.3,0,'#fff6d0'];const r=RNG(seed*53+7);const lx=L[0]*W,ly=L[1]*H;let o='';
+o+=`<defs><radialGradient id="vg${id}" cx=".5" cy=".5" r=".78"><stop offset=".5" stop-color="#1a0f2a" stop-opacity="0"/><stop offset="1" stop-color="#1a0f2a" stop-opacity=".5"/></radialGradient><radialGradient id="bl${id}" cx="${L[0]}" cy="${L[1]}" r=".8"><stop offset="0" stop-color="${L[2]}" stop-opacity=".5"/><stop offset=".45" stop-color="${L[2]}" stop-opacity=".12"/><stop offset="1" stop-color="${L[2]}" stop-opacity="0"/></radialGradient><linearGradient id="gr${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd9a8" stop-opacity=".12"/><stop offset=".6" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#2a1a4a" stop-opacity=".22"/></linearGradient></defs>`;
+for(let i=0;i<7;i++){const a=(Math.PI*.1)+i*(Math.PI*.78/6)+r()*.1,w=.06+r()*.05,L1=Math.max(W,H)*1.6;o+=`<polygon points="${lx.toFixed(0)},${ly.toFixed(0)} ${(lx+Math.cos(a-w)*L1).toFixed(0)},${(ly+Math.sin(a-w)*L1).toFixed(0)} ${(lx+Math.cos(a+w)*L1).toFixed(0)},${(ly+Math.sin(a+w)*L1).toFixed(0)}" fill="${L[2]}" opacity="${(.045+r()*.05).toFixed(3)}"/>`}
+o+=`<rect width="${W}" height="${H}" fill="url(#bl${id})"/><rect width="${W}" height="${H}" fill="url(#gr${id})"/>`;
+for(let i=0;i<14;i++){const x=r()*W,y=r()*H*.8,rr=1.5+r()*5;o+=`<circle cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="${rr.toFixed(1)}" fill="${L[2]}" opacity="${(.06+r()*.12).toFixed(2)}"/>`}
+for(let i=0;i<5;i++){const x=r()*W,y=r()*H*.7,q=2+r()*3;o+=`<path d="M${x.toFixed(0)} ${(y-q*2).toFixed(0)} L${(x+q*.5).toFixed(0)} ${(y-q*.5).toFixed(0)} L${(x+q*2).toFixed(0)} ${y.toFixed(0)} L${(x+q*.5).toFixed(0)} ${(y+q*.5).toFixed(0)} L${x.toFixed(0)} ${(y+q*2).toFixed(0)} L${(x-q*.5).toFixed(0)} ${(y+q*.5).toFixed(0)} L${(x-q*2).toFixed(0)} ${y.toFixed(0)} L${(x-q*.5).toFixed(0)} ${(y-q*.5).toFixed(0)}Z" fill="#fff" opacity=".55"/>`}
+if(fx){const cx=W*.5,cy=H*.55;for(let i=0;i<26;i++){const a=i*Math.PI*2/26+r()*.1,r1=Math.min(W,H)*(.34+r()*.1),r2=Math.max(W,H)*.9,w=.018;o+=`<polygon points="${(cx+Math.cos(a)*r1).toFixed(0)},${(cy+Math.sin(a)*r1).toFixed(0)} ${(cx+Math.cos(a-w)*r2).toFixed(0)},${(cy+Math.sin(a-w)*r2).toFixed(0)} ${(cx+Math.cos(a+w)*r2).toFixed(0)},${(cy+Math.sin(a+w)*r2).toFixed(0)}" fill="#fff" opacity=".16"/>`}}
+o+=`<rect width="${W}" height="${H}" fill="url(#vg${id})"/>`;return o}
+
+/* ===== Characters: parametric cartoon people (feet at y=0, ~200 tall) ===== */
+const SK={a:'#f6d5b8',b:'#e9b98e',c:'#c98a5b',d:'#8d5a3a',e:'#5e3b26'};
+const mk=(o)=>Object.assign({skin:SK.a,hair:'#6b4423',hs:'short',hat:null,coat:'#2f3f6b',trim:'#e8dcc0',pants:'#e8e2d0',shirt:'#fbf7ee',hf:1,wf:1,dress:false,glasses:false,sash:null,belt:null,apron:null},o);
+const CHARS={
+ham_k:mk({hair:'#a8582a',coat:'#d8c8a0',trim:'#a58a5a',pants:'#6b5a40',hf:.68,hs:'short'}),
+ham_t:mk({hair:'#a8582a',coat:'#3b4a6b',trim:'#e8dcc0',pants:'#4a3a2a',hf:.92}),
+ham_s:mk({hair:'#a8582a',coat:'#25408f',trim:'#d9bf7a',hat:'tri',belt:'#fbf7ee',hf:.95}),
+ham_a:mk({hair:'#a8582a',coat:'#25408f',trim:'#d9bf7a',sash:'#2f8f57',hf:.96}),
+ham_c:mk({hair:'#b0623a',coat:'#26304f',trim:'#fbf7ee',pants:'#e8e2d0',hf:.96}),
+ham_o:mk({hair:'#b9a79a',coat:'#1f2433',trim:'#fbf7ee',pants:'#2a2a2a',hf:.96}),
+rach:mk({skin:SK.b,hair:'#3a2a20',hs:'bun',coat:'#6f87a8',trim:'#e8dcc0',dress:true,hf:.94}),
+wash:mk({hair:'#efeae0',hs:'wig',coat:'#1f3a8a',trim:'#d9bf7a',pants:'#e8e2d0',hf:1.1,sash:null}),
+wash_s:mk({hair:'#efeae0',hs:'wig',coat:'#1f3a8a',trim:'#d9bf7a',hat:'bi',belt:'#d9c07a',hf:1.1}),
+wash_p:mk({hair:'#efeae0',hs:'wig',coat:'#4a3328',trim:'#d9bf7a',pants:'#4a3328',hf:1.1}),
+eliza:mk({hair:'#3a2415',hs:'bun',coat:'#d8798a',trim:'#fbf7ee',dress:true,hf:.94}),
+ang:mk({hair:'#2a1a12',hs:'curly',coat:'#2f8f8a',trim:'#fbf7ee',dress:true,hf:.98}),
+peggy:mk({hair:'#5a3a22',hs:'long',coat:'#e0b83a',trim:'#fbf7ee',dress:true,hf:.92}),
+burr:mk({hair:'#2a1c14',hs:'queue',coat:'#1e1e28',trim:'#bfb8a8',pants:'#1e1e28',hf:.94}),
+jeff:mk({hair:'#b5651d',hs:'short',coat:'#7a3b2f',trim:'#fbf7ee',pants:'#d8caa8',hf:1.12}),
+madi:mk({hair:'#6b5a4a',hs:'bald',coat:'#2a2a3a',trim:'#fbf7ee',pants:'#2a2a3a',hf:.9}),
+laf:mk({hair:'#8a5a30',hs:'wig',coat:'#e6e9f2',trim:'#2a4b9b',hat:'bi',hf:.98}),
+laur:mk({hair:'#2a1a12',hs:'curly',coat:'#25408f',trim:'#d9bf7a',pants:'#e8e2d0',hf:1.0}),
+mull:mk({skin:SK.a,hair:'#7a4a22',hs:'short',coat:'#6a5a3a',trim:'#e8dcc0',apron:'#e8e2d0',wf:1.18,hf:.96}),
+king:mk({hair:'#efeae0',hs:'wig',coat:'#b3202a',trim:'#ffffff',hat:'crown',hf:.98,wf:1.1}),
+brit:mk({hair:'#cfc8bd',hs:'wig',coat:'#b83a3a',trim:'#e8dcc0',hat:'tri',hf:1}),
+corn:mk({hair:'#efeae0',hs:'wig',coat:'#b83a3a',trim:'#d9bf7a',hf:1.0,wf:1.1}),
+sold:mk({skin:SK.b,hair:'#4a3a2a',coat:'#25408f',trim:'#d9bf7a',hat:'tri',hf:.98}),
+sold2:mk({skin:SK.d,hair:'#2a1a12',coat:'#25408f',trim:'#d9bf7a',hat:'tri',hf:1}),
+sold3:mk({skin:SK.a,hair:'#8a6a3a',coat:'#25408f',trim:'#d9bf7a',hat:'tri',hf:.96}),
+mercha:mk({hair:'#cfc8bd',hs:'wig',coat:'#4a5a3a',trim:'#e8dcc0',hf:1.0,wf:1.1}),
+cooke:mk({hair:'#cfc8bd',hs:'wig',coat:'#17171f',trim:'#fbf7ee',hf:1}),
+knox:mk({hair:'#cfc8bd',hs:'wig',coat:'#17171f',trim:'#fbf7ee',hf:1}),
+schuy:mk({hair:'#cfc8bd',hs:'wig',coat:'#25408f',trim:'#d9bf7a',hf:1.02,wf:1.08}),
+steu:mk({hair:'#efeae0',hs:'wig',coat:'#25408f',trim:'#d9bf7a',hf:1.0,wf:1.1}),
+phil:mk({hair:'#a8582a',coat:'#26304f',trim:'#fbf7ee',pants:'#e8e2d0',hf:.66}),
+phil_t:mk({hair:'#a8582a',coat:'#26304f',trim:'#fbf7ee',pants:'#e8e2d0',hf:.9}),
+ben:mk({hair:'#d7d2c8',hs:'long',coat:'#5a3a3a',trim:'#e8dcc0',glasses:true,hf:.95,wf:1.2}),
+eack:mk({hair:'#3a2a1a',hs:'short',coat:'#2e3a2e',trim:'#e8dcc0',hf:.98}),
+cit1:mk({skin:SK.a,hair:'#6b4423',hs:'short',coat:'#7a5a3a',trim:'#e8dcc0',pants:'#4a3a2a',hf:.98}),
+cit2:mk({skin:SK.d,hair:'#1a120c',hs:'short',coat:'#8a8f5a',trim:'#e8dcc0',pants:'#5a4a3a',hf:1}),
+cit3:mk({skin:SK.b,hair:'#3a2a1a',hs:'short',coat:'#9a4a3a',trim:'#e8dcc0',pants:'#3a3a3a',hf:.94}),
+cit4:mk({skin:SK.e,hair:'#120c08',hs:'short',coat:'#c08a2f',trim:'#fbf7ee',pants:'#5a4a3a',hf:1.02}),
+cit5:mk({skin:SK.c,hair:'#2a1a12',hs:'short',coat:'#3a6a7a',trim:'#fbf7ee',pants:'#4a3a2a',hf:.96}),
+wom1:mk({skin:SK.a,hair:'#6b4423',hs:'bun',coat:'#8a6fa8',trim:'#fbf7ee',dress:true,hf:.94}),
+wom2:mk({skin:SK.d,hair:'#1a120c',hs:'bun',coat:'#c9743a',trim:'#fbf7ee',dress:true,hf:.94}),
+wom3:mk({skin:SK.b,hair:'#3a2a1a',hs:'long',coat:'#5a8a6a',trim:'#fbf7ee',dress:true,hf:.94}),
+worker:mk({skin:SK.e,hair:'#120c08',hs:'short',coat:'#d8c8a0',trim:'#d8c8a0',pants:'#8a7a5a',hf:1}),
+kid1:mk({skin:SK.a,hair:'#6b4423',coat:'#9a5a3a',trim:'#e8dcc0',pants:'#4a3a2a',hf:.66}),
+kid2:mk({skin:SK.d,hair:'#1a120c',coat:'#3a6a7a',trim:'#e8dcc0',pants:'#4a3a2a',hf:.66}),
+farmer:mk({skin:SK.a,hair:'#7a5a30',coat:'#7a6a4a',trim:'#d8c8a0',pants:'#5a4a30',hat:'cap',hf:1.0}),
+adams:mk({hair:'#efeae0',hs:'wig',coat:'#2a3a3a',trim:'#fbf7ee',hf:.92,wf:1.2}),
+reader:mk({hair:'#3a2a1a',hs:'short',coat:'#7a5a8a',trim:'#fbf7ee',hf:.98})
+};
+
+let UID=0;
+const shade=(hx,a)=>{const n=parseInt(hx.slice(1),16);let r=n>>16,g=(n>>8)&255,b=n&255;const t=a>0?255:0,k=Math.abs(a);r=Math.round(r+(t-r)*k);g=Math.round(g+(t-g)*k);b=Math.round(b+(t-b)*k);return '#'+((1<<24)+(r<<16)+(g<<8)+b).toString(16).slice(1)};
+const EYE={ham_k:'#5b86b8',ham_t:'#5b86b8',ham_s:'#5b86b8',ham_a:'#5b86b8',ham_c:'#5b86b8',ham_o:'#5b86b8',wash:'#6f93b8',wash_s:'#6f93b8',wash_p:'#6f93b8',eliza:'#5a3a22',rach:'#4a2f1a',laf:'#4f7a6a',jeff:'#7a9a6a',king:'#7a8fb0',burr:'#2a1a12',ben:'#6a7a8a'};
+const EM={
+smile:{m:'M-6 -152 Q0 -146 6 -152',b:0},grin:{m:'M-8 -153 Q0 -141 8 -153 Z',f:'#9a2f3a',b:0},neutral:{m:'M-4 -151 L4 -151',b:0},
+worry:{m:'M-5 -149 Q0 -154 5 -149',b:2},angry:{m:'M-6 -150 Q0 -155 6 -150',b:3},shout:{o:1,b:3},sad:{m:'M-5 -149 Q0 -155 5 -149',b:2},
+surprise:{o:2,b:1},smirk:{m:'M-5 -151 Q2 -148 8 -154',b:4},think:{m:'M-5 -151 Q0 -150 6 -152',b:5},laugh:{m:'M-9 -154 Q0 -139 9 -154 Z',f:'#9a2f3a',b:1}
+};
+function hairBack(p,hg){const s=`fill="url(#${hg})"`;return p.hs==='long'?`<path d="M-26 -166 Q-34 -130 -24 -104 Q-10 -112 0 -112 Q10 -112 24 -104 Q34 -130 26 -166 Z" ${s}/>`:p.hs==='queue'?`<path d="M-4 -150 Q-14 -128 -6 -108 Q4 -110 8 -122 Q6 -138 4 -150Z" ${s}/>${rc(-3,-130,7,5,'#111','stroke="none"')}`:p.hs==='bun'?'':''}
+function hairFront(p,hg){const h=p.hair,s=`fill="url(#${hg})"`,hi=shade(h,.45);
+const bangs=`<path d="M-25 -164 Q-30 -200 0 -199 Q30 -200 25 -164 L23 -178 L17 -170 L13 -182 L6 -172 L0 -184 L-6 -173 L-13 -183 L-17 -172 L-23 -178 Z" ${s}/><path d="M-15 -192 Q-4 -197 9 -192" stroke="${hi}" stroke-width="3" fill="none" stroke-linecap="round" opacity=".6"/><path d="M-9 -185 Q-3 -188 3 -186" stroke="${hi}" stroke-width="1.6" fill="none" opacity=".5"/>`;
+switch(p.hs){
+case 'bald':return `<path d="M-23 -178 Q-14 -188 -4 -185 Q-14 -176 -21 -168Z" ${s}/><path d="M23 -178 Q14 -188 4 -185 Q14 -176 21 -168Z" ${s}/>`;
+case 'wig':return `<path d="M-25 -160 Q-31 -202 0 -200 Q31 -202 25 -160 Q19 -180 0 -182 Q-19 -180 -25 -160Z" ${s}/>`+[[-28,-158,10],[28,-158,10],[-27,-143,8],[27,-143,8],[-24,-176,7],[24,-176,7]].map(c=>`<circle cx="${c[0]}" cy="${c[1]}" r="${c[2]}" ${s}/><circle cx="${c[0]-2}" cy="${c[1]-2}" r="${c[2]*.35}" fill="#fff" opacity=".35" stroke="none"/>`).join('')+`<path d="M-15 -194 Q-4 -199 9 -194" stroke="${hi}" stroke-width="3" fill="none" opacity=".6"/>`;
+case 'long':return bangs+`<path d="M-25 -166 Q-33 -140 -26 -118 Q-22 -140 -21 -160Z" ${s}/><path d="M25 -166 Q33 -140 26 -118 Q22 -140 21 -160Z" ${s}/>`;
+case 'bun':return bangs+`<circle cx="0" cy="-203" r="10" ${s}/><circle cx="-3" cy="-206" r="3.5" fill="${hi}" opacity=".5" stroke="none"/>`;
+case 'curly':return [-20,-10,0,10,20].map((x,i)=>`<circle cx="${x}" cy="${-186-(i%2?-2:3)}" r="10" ${s}/>`).join('')+`<circle cx="-25" cy="-170" r="8" ${s}/><circle cx="25" cy="-170" r="8" ${s}/>`+[-14,2,16].map(x=>`<circle cx="${x}" cy="-190" r="3" fill="${hi}" opacity=".5" stroke="none"/>`).join('');
+default:return bangs}}
+function hat(p){switch(p.hat){
+case 'tri':return pa('M-35 -176 Q0 -192 35 -176 L27 -202 Q0 -212 -27 -202Z','#26262f','stroke-width="1.6"')+pa('M-35 -176 Q0 -192 35 -176','none','stroke="#d9bf7a" stroke-width="2.4"')+ci(0,-190,2.4,'#d9bf7a','stroke="none"');
+case 'bi':return pa('M-42 -178 Q0 -224 42 -178 Q0 -190 -42 -178Z','#26262f','stroke-width="1.6"')+pa('M-42 -178 Q0 -190 42 -178','none','stroke="#d9bf7a" stroke-width="2.4"')+ci(0,-191,3,'#d9bf7a','stroke="none"');
+case 'crown':return pa('M-21 -188 L-23 -212 L-11 -200 L0 -216 L11 -200 L23 -212 L21 -188Z','#f6c93a','stroke-width="1.6"')+ci(0,-198,2.8,'#d9232d','stroke="none"')+ci(-12,-195,2,'#2a6bd9','stroke="none"')+ci(12,-195,2,'#2a6bd9','stroke="none"');
+case 'cap':return pa('M-25 -176 Q0 -206 25 -176Z',p.coat)+rc(-27,-178,54,5,'#4a3a2a');
+default:return ''}}
+function eye(x,fl,col,emo,lash){const sx=x<0?-1:1;
+if(emo==='laugh'||emo==='grin'&&0)return `<path d="M${x-5} -164 Q${x} -172 ${x+5} -164" stroke="#1a0f0f" stroke-width="2.2" fill="none" stroke-linecap="round"/>`;
+const big=emo==='surprise'?1.18:emo==='worry'||emo==='sad'?1.05:1;
+let s=`<ellipse cx="${x}" cy="-166" rx="${5.6*big}" ry="${7*big}" fill="#fff" stroke="#2a1a1a" stroke-width=".9"/>`;
+s+=`<ellipse cx="${x}" cy="-165.5" rx="${4.4*big}" ry="${6*big}" fill="${col}" stroke="none"/><ellipse cx="${x}" cy="-168" rx="${4*big}" ry="${3.6*big}" fill="${shade(col,-.4)}" opacity=".85" stroke="none"/><ellipse cx="${x}" cy="-165" rx="${2*big}" ry="${3.2*big}" fill="#140a0a" stroke="none"/>`;
+s+=`<circle cx="${x-1.7}" cy="-168" r="1.9" fill="#fff" stroke="none"/><circle cx="${x+1.6}" cy="-163" r="1" fill="#fff" stroke="none"/>`;
+s+=`<path d="M${x-6.4} -166 Q${x} -${174*big} ${x+6.4} -166" stroke="#1a0f0f" stroke-width="2.4" fill="none" stroke-linecap="round"/>`;
+if(emo==='angry')s+=`<path d="M${x-7} ${-176} L${x+7} ${x<0?-170:-176} L${x+7} -180 L${x-7} -180Z" fill="${'SKIN'}" stroke="none" opacity="0"/>`;
+if(lash)s+=`<path d="M${x+sx*5.8} -167 l${sx*3.4} -2.4" stroke="#1a0f0f" stroke-width="1.6" stroke-linecap="round"/>`;
+return s}
+function face(p,emo,key){const e=EM[emo]||EM.smile;let s='';const by=-178.5,bc=shade(p.hair,-.5);
+const brow=(k)=>{const w=2.6,c=bc;switch(k){case 3:return ln(-14,by-2,-4,by+3,c,w)+ln(14,by-2,4,by+3,c,w);case 2:return ln(-14,by+3,-4,by-2,c,w)+ln(14,by+3,4,by-2,c,w);case 1:return pa(`M-14 ${by-1} Q-9 ${by-7} -4 ${by-1}`,'none',`stroke="${c}" stroke-width="${w}"`)+pa(`M14 ${by-1} Q9 ${by-7} 4 ${by-1}`,'none',`stroke="${c}" stroke-width="${w}"`);case 4:return ln(-14,by+1,-4,by,c,w)+ln(14,by-3,4,by+1,c,w);case 5:return ln(-14,by+1,-4,by+1,c,w)+ln(14,by-3,4,by-1,c,w);default:return ln(-14,by,-4,by,c,w)+ln(14,by,4,by,c,w)}};
+const col=EYE[key]||(p.skin===SK.a||p.skin===SK.b?'#6b3f23':'#3a2214');const lash=p.dress;
+s+=eye(-9.5,-1,col,emo,lash)+eye(9.5,1,col,emo,lash)+brow(e.b);
+s+=pa('M0 -158 Q-2 -155 1 -154','none','stroke="rgba(120,60,40,.5)" stroke-width="1.3"');
+if(e.o)s+=el(0,-152,e.o===2?3.6:5,e.o===2?4.6:6.4,'#8a2a33','stroke="#4a1a1a" stroke-width="1"')+el(0,-149.5,3,2,'#e8808a','stroke="none"');
+else if(e.f)s+=pa(e.m,e.f,'stroke="#5a1a1a" stroke-width="1.2"');
+else s+=pa(e.m,'none','stroke="#6a2a2a" stroke-width="1.8" stroke-linecap="round"');
+s+=el(-15,-156,4.2,2.6,'#f58a8a','opacity=".45" stroke="none"')+el(15,-156,4.2,2.6,'#f58a8a','opacity=".45" stroke="none"');
+if(p.glasses)s+=`<g stroke="#3a2a1a" stroke-width="1.6" fill="rgba(255,255,255,.22)"><circle cx="-9.5" cy="-166" r="8"/><circle cx="9.5" cy="-166" r="8"/><line x1="-1.5" y1="-166" x2="1.5" y2="-166"/></g>`;
+return s}
+function arms(p,pose,item,flip){const W=24*p.wf,sy=-136,sl=p.coat,sk=p.skin;
+const A=(x1,y1,x2,y2,x3,y3)=>{const mid=x3!==undefined;const d=`M${x1} ${y1} ${mid?`L${x2} ${y2} L${x3} ${y3}`:`L${x2} ${y2}`}`;const hx=mid?x3:x2,hy=mid?y3:y2;return `<path d="${d}" stroke="#2a1a24" stroke-opacity=".85" stroke-width="14.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="${d}" stroke="${sl}" stroke-width="11.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="${d}" stroke="#fff" stroke-opacity=".14" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(-2 0)"/><circle cx="${hx}" cy="${hy}" r="6.6" fill="${sk}" stroke="#2a1a24" stroke-opacity=".8" stroke-width="1.3"/>`};
+let L,Rr,hand;
+switch(pose){
+case 'up':L=A(-W,sy,-W-6,-88);Rr=A(W,sy,W+12,-170);hand=[W+12,-170];break;
+case 'both':L=A(-W,sy,-W-14,-172);Rr=A(W,sy,W+14,-172);hand=[W+14,-172];break;
+case 'point':L=A(-W,sy,-W-6,-88);Rr=A(W,sy,W+52,-142);hand=[W+52,-142];break;
+case 'hold':L=A(-W,sy,-W-6,-88);Rr=A(W,sy,W+14,-104,W-2,-128);hand=[W-2,-128];break;
+case 'write':L=A(-W,sy,-W-4,-100,-W+12,-98);Rr=A(W,sy,W+4,-106,10,-108);hand=[10,-108];break;
+case 'cross':L=A(-W,sy,-W-2,-112,6,-118);Rr=A(W,sy,W+2,-112,-6,-118);hand=null;break;
+case 'hips':L=A(-W,sy,-W-14,-112,-W+4,-92);Rr=A(W,sy,W+14,-112,W-4,-92);hand=null;break;
+case 'wave':L=A(-W,sy,-W-6,-88);Rr=A(W,sy,W+22,-160,W+16,-182);hand=[W+16,-182];break;
+default:L=A(-W,sy,-W-6,-88);Rr=A(W,sy,W+6,-88);hand=[W+6,-88]}
+let it='';if(item&&hand){const[hx,hy]=hand;switch(item){
+case 'quill':it=ln(hx,hy,hx+10,hy-30,'#f8f4ea',2.4)+pa(`M${hx+10} ${hy-30} q10 -14 4 -22 q-8 10 -4 22Z`,'#f8f4ea','stroke="#8a8478" stroke-width=".8"');break;
+case 'sword':it=ln(hx,hy+6,hx+4,hy-64,'#c9ced6',3.5)+ln(hx-8,hy-4,hx+10,hy-2,'#b8860b',3);break;
+case 'flag':it=flagUS(hx,hy+10,34);break;
+case 'scroll':it=rc(hx-4,hy-14,8,30,'#f2e6c4','stroke="#b9a678" stroke-width="1"')+el(hx,hy-14,4,2,'#d9c88e');break;
+case 'book':it=rc(hx-10,hy-18,20,26,'#6b3a2a','stroke="#3a1f14" stroke-width="1.2"')+rc(hx-8,hy-16,3,22,'#d9bf7a');break;
+case 'ledger':it=rc(hx-11,hy-18,22,28,'#2f6b45','stroke="#1a3d28" stroke-width="1.2"')+rc(hx-8,hy-12,16,3,'#e8dcc0')+rc(hx-8,hy-6,16,3,'#e8dcc0');break;
+case 'musket':it=ln(hx,hy+36,hx+6,hy-80,'#3a2a1a',4)+ln(hx+6,hy-80,hx+7,hy-102,'#cfd3da',1.8);break;
+case 'pistol':it=pa(`M${hx-4} ${hy-4} l22 -4 l2 6 l-14 2 l-3 12 l-8 0Z`,'#3a3a3a');break;
+case 'bag':it=pa(`M${hx-9} ${hy+8} q-8 -20 6 -26 q14 6 6 26Z`,'#a88a5a','stroke="#6a5030" stroke-width="1.2"')+ci(hx-2,hy-6,3,'#ffd43b');break;
+case 'letter':it=rc(hx-9,hy-10,18,14,'#fbf7ee','stroke="#b9a678" stroke-width="1"')+ln(hx-5,hy-6,hx+5,hy-6,'#9a8a6a',1)+ln(hx-5,hy-2,hx+3,hy-2,'#9a8a6a',1);break;
+case 'pitchfork':it=ln(hx,hy+30,hx,hy-70,'#6b4423',3.5)+ln(hx-8,hy-70,hx+8,hy-70,'#8a8a8a',3)+[-8,0,8].map(d=>ln(hx+d,hy-70,hx+d,hy-86,'#8a8a8a',2.4)).join('');break;
+case 'tape':it=pa(`M${hx-8} ${hy} q8 -14 16 0`,'none','stroke="#f2e6c4" stroke-width="5"');break;
+case 'torch':it=ln(hx,hy+4,hx,hy-34,'#6b4423',4)+pl(`${hx-8},${hy-34} ${hx},${hy-58} ${hx+8},${hy-34}`,'#ff8a1e')+pl(`${hx-4},${hy-34} ${hx},${hy-48} ${hx+4},${hy-34}`,'#ffd43b');break;
+case 'bayonet':it=ln(hx,hy+36,hx+6,hy-70,'#3a2a1a',4)+ln(hx+6,hy-70,hx+8,hy-110,'#e8ecf2',2.2);break;
+case 'coin':it=ci(hx,hy-10,9,'#ffd43b','stroke="#b8860b" stroke-width="2"');break;
+case 'cup':it=rc(hx-6,hy-14,12,14,'#e8dcc0','stroke="#9a8a6a" stroke-width="1.2"');break}}
+return {L,Rr,it}}
+function drawChar(key,x,gy,h,emo='smile',pose='down',item=null,flip=1){
+const p=CHARS[key]||CHARS.cit1;const s=(h/200)*p.hf;const u=++UID;const W=24*p.wf;const a=arms(p,pose,item,flip);
+const hg='hg'+u,cg='cg'+u,sg='sg'+u;
+const defs=`<defs><linearGradient id="${hg}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${shade(p.hair,.32)}"/><stop offset=".55" stop-color="${p.hair}"/><stop offset="1" stop-color="${shade(p.hair,-.3)}"/></linearGradient><linearGradient id="${cg}" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="${shade(p.coat,.22)}"/><stop offset=".5" stop-color="${p.coat}"/><stop offset="1" stop-color="${shade(p.coat,-.3)}"/></linearGradient><linearGradient id="${sg}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${shade(p.skin,.08)}"/><stop offset="1" stop-color="${shade(p.skin,-.1)}"/></linearGradient></defs>`;
+let body;
+if(p.dress)body=pa(`M${-W} -140 Q0 -152 ${W} -140 L${W+20} -4 Q0 4 ${-W-20} -4Z`,`url(#${cg})`)+pa(`M${-W*.6} -140 L0 -118 L${W*.6} -140Z`,p.trim)+rc(-W,-100,W*2,5,p.trim,'opacity=".7"')+pa(`M${-W+4} -138 Q${-W-6} -70 ${-W-14} -8`,'none','stroke="#fff" stroke-opacity=".22" stroke-width="3"');
+else body=rc(-13,-64,10,60,shade(p.pants,.05))+rc(3,-64,10,60,shade(p.pants,-.15))+pa('M-15 -6 Q-9 -12 -3 -6 L-3 0 L-15 0Z','#2a2018')+pa('M3 -6 Q9 -12 15 -6 L15 0 L3 0Z','#2a2018')+pa(`M${-W-4} -62 L${-W} -140 Q0 -152 ${W} -140 L${W+4} -62Z`,`url(#${cg})`)+pa(`M${-9} -142 L0 -112 L9 -142Z`,p.shirt)+[-100,-86,-72].map(y=>ci(0,y,2.4,p.trim,'stroke-width=".8"')).join('')+ln(-W,-140,-6,-112,p.trim,3)+ln(W,-140,6,-112,p.trim,3)+pa(`M${-W+3} -136 L${-W+5} -66`,'none','stroke="#fff" stroke-opacity=".22" stroke-width="3.5"')+rc(-W-4,-66,W*2+8,5,shade(p.coat,-.3),'opacity=".6" stroke="none"');
+if(p.apron)body+=rc(-W*.7,-104,W*1.4,44,p.apron,'opacity=".95"');
+if(p.belt)body+=ln(-W,-138,W-2,-70,p.belt,5)+ln(W,-138,-W+2,-70,p.belt,5);
+if(p.sash)body+=ln(-W,-136,W,-72,p.sash,7);
+const faceP=`M-23 -170 Q-24 -146 0 -140 Q24 -146 23 -170 Q22 -192 0 -192 Q-22 -192 -23 -170Z`;
+const head=`<g transform="translate(0 -146) scale(1.1) translate(0 146)">`+hairBack(p,hg)+rc(-6,-148,12,14,shade(p.skin,-.12))+ci(-23,-166,4.6,p.skin)+ci(23,-166,4.6,p.skin)+pa(faceP,`url(#${sg})`)+pa('M-22 -172 Q-14 -160 -20 -150 Q-23 -158 -22 -172Z','#000','opacity=".06" stroke="none"')+hairFront(p,hg)+face(p,emo,key)+hat(p)+`</g>`;
+const sh=el(0,0,36*p.wf,7,'rgba(0,0,0,.28)','stroke="none"');
+return `<g transform="translate(${x.toFixed(1)} ${gy.toFixed(1)}) scale(${(flip*s).toFixed(3)} ${s.toFixed(3)})">${defs}${sh}<g stroke="#2a1a24" stroke-opacity=".85" stroke-width="1.5" stroke-linejoin="round">${a.L}${body}${a.Rr}${head}</g>${a.it}</g>`}
+function parseChar(str){const m=str.match(/^([a-z_0-9]+)(?:@([\d.]+))?(.*)$/);const parts=m[3].split(':').filter(Boolean);
+return {key:m[1],x:m[2]!==undefined?parseFloat(m[2]):null,emo:parts[0]||'smile',pose:parts[1]||'down',item:parts[2]&&parts[2]!=='-'?parts[2]:null,flip:parts[3]==='f'?-1:1}}
+
+/* ===== Engine: layouts, panels, navigation, workbook widgets ===== */
+const PW=500,PH=680,CX=12,CY=12,CW=476,CH=640,GUT=8;
+const LAYOUTS={
+F:[[0,0,1,1]],S2:[[0,0,1,.5],[0,.5,1,.5]],S2b:[[0,0,1,.4],[0,.4,1,.6]],S2c:[[0,0,1,.6],[0,.6,1,.4]],
+S3:[[0,0,1,.34],[0,.34,1,.33],[0,.67,1,.33]],T3:[[0,0,1,.38],[0,.38,.5,.62],[.5,.38,.5,.62]],B3:[[0,0,.5,.62],[.5,0,.5,.62],[0,.62,1,.38]],
+G4:[[0,0,.5,.5],[.5,0,.5,.5],[0,.5,.5,.5],[.5,.5,.5,.5]],W4:[[0,0,1,.28],[0,.28,.5,.38],[.5,.28,.5,.38],[0,.66,1,.34]],
+M5:[[0,0,.58,.3],[.58,0,.42,.3],[0,.3,1,.34],[0,.64,.5,.36],[.5,.64,.5,.36]],D4:[[0,0,.5,.3],[.5,0,.5,.3],[0,.3,1,.4],[0,.7,1,.3]],H3:[[0,0,1,.5],[0,.5,.5,.5],[.5,.5,.5,.5]]
+};
+const $=(s,r=document)=>r.querySelector(s);
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const fmt=s=>esc(s).replace(/\*\*(.+?)\*\*/g,'<b class="gw">$1</b>');
+let STATE={stars:0,done:{},notes:{},name:''};
+try{const t=localStorage.getItem('hamilton-gn');if(t)STATE=Object.assign(STATE,JSON.parse(t))}catch(e){}
+function save(){try{localStorage.setItem('hamilton-gn',JSON.stringify(STATE))}catch(e){}}
+
+/* ---------- comic panel ---------- */
+function panelHTML(pd,pi,pg){const [scene,chars,cap,say]=pd;
+let h=`<div class="ov">`;if(cap)h+=`<div class="cap">${fmt(cap)}</div>`;
+(say||[]).forEach((s,i)=>{const w=s[0];if(w==='*'){}else{const th=w[0]==='~';h+=`<div class="bub ${th?'th':''}" data-w="${th?w.slice(1):w}">${fmt(s[1])}</div>`}});
+return h+`</div>`}
+function layoutPanel(el,pd,seed){const W=el.clientWidth,H=el.clientHeight;const [scene,chars,cap,say]=pd;
+const ov=$('.ov',el);let fs=1;if(ov.offsetHeight>H*.62){ov.style.fontSize='11px';fs=.9}
+const ovH=ov.offsetHeight;const cs=(chars||[]).map(parseChar);const n=cs.length;const step=n>1?Math.min(.34,.66/(n-1)):0;
+cs.forEach((c,i)=>{if(c.x==null)c.x=.5+(i-(n-1)/2)*step;if(c.flip===1&&c.x>.55&&!/:f$/.test(chars[i]))c.flip=-1});
+const gy=H-5;let avail=Math.max(H*.44,Math.min(H*.72,gy-ovH+H*.08));const hh=avail;
+const base=Math.min(hh*1.05,H*.8);
+let svg=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">${drawScene(scene,W,H,seed)}`;
+(say||[]).filter(s=>s[0]==='*').forEach((s,i)=>{const r=RNG(seed+i*31);const fs=Math.min(40,W/6);svg+=`<text x="${(W*.06+r()*W*.3).toFixed(0)}" y="${Math.max(ovH+fs,H*.3+i*fs).toFixed(0)}" font-family="Bangers,Impact,sans-serif" font-size="${fs}" fill="#ffe14a" stroke="#b3202a" stroke-width="2.5" paint-order="stroke" letter-spacing="2" transform="rotate(${(r()*14-7).toFixed(0)} ${W*.3} ${H*.4})" style="text-shadow:3px 3px 0 #111">${esc(s[1])}</text>`});
+cs.forEach(c=>{svg+=drawChar(c.key,c.x*W,gy,base/1.1,c.emo,c.pose,c.item,c.flip)});
+svg+=post(scene,W,H,seed,seed,(say||[]).some(s=>s[0]==='*'));
+el.insertAdjacentHTML('afterbegin',`<div class="art">${svg}</svg></div>`);
+const byW={};cs.forEach(c=>byW[c.key]=c);
+el.querySelectorAll('.bub').forEach(b=>{const w=b.dataset.w;const c=byW[w];const sx=(c?c.x:.5)*W;const bw=b.offsetWidth;const L=Math.max(6,Math.min(W-bw-6,sx-bw/2));b.style.marginLeft=L+'px';b.style.setProperty('--tx',Math.max(14,Math.min(bw-14,sx-L))+'px')});
+}
+function buildStory(pg,pageNo){const rects=LAYOUTS[pg.l];let h=`<div class="pagebg">`;
+rects.forEach((r,i)=>{const x=CX+r[0]*CW+GUT/2,y=CY+r[1]*CH+GUT/2,w=r[2]*CW-GUT,hh=r[3]*CH-GUT;h+=`<div class="panel" data-i="${i}" style="left:${x}px;top:${y}px;width:${w}px;height:${hh}px">${panelHTML(pg.p[i],i,pageNo)}</div>`});
+return h+`</div>`}
+function buildOpener(pg){return `<div class="open"><div class="panel big" style="left:12px;top:12px;width:476px;height:640px"><div class="ov"></div></div><div class="opentxt"><div class="chn">CHAPTER ${pg.n}</div><div class="cht">${esc(pg.title)}</div><div class="chy">${esc(pg.year)}</div><div class="chb">${fmt(pg.blurb)}</div></div></div>`}
+function layoutOpener(el,pg,seed){const pn=$('.panel',el);const W=pn.clientWidth,H=pn.clientHeight;const cs=(pg.chars||[]).map(parseChar);const n=cs.length;const step=n>1?Math.min(.34,.66/(n-1)):0;
+cs.forEach((c,i)=>{if(c.x==null)c.x=.5+(i-(n-1)/2)*step});
+let svg=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">${drawScene(pg.scene,W,H,seed)}`;cs.forEach(c=>{svg+=drawChar(c.key,c.x*W,H-150,H*.46,c.emo,c.pose,c.item,c.flip)});svg+=post(pg.scene,W,H,seed,seed,true);
+pn.insertAdjacentHTML('afterbegin',`<div class="art">${svg}</svg></div>`)}
+
+/* ---------- workbook widgets ---------- */
+let WID=0;
+function star(id){if(!STATE.done[id]){STATE.done[id]=1;STATE.stars++;save();updStars()}}
+function updStars(){const e=$('#stars');if(e)e.textContent='★ '+STATE.stars}
+const W_={
+quiz:(it,pid)=>{const id=pid+'q'+(++WID);return `<div class="wi" data-id="${id}"><div class="q">${fmt(it.q)}</div>${it.o.map((o,i)=>`<button class="opt" data-k="quiz" data-i="${i}" data-a="${it.a}" data-id="${id}">${fmt(o)}</button>`).join('')}<div class="fb" id="fb${id}" data-why="${esc(it.why||'')}"></div></div>`},
+tf:(it,pid)=>{const id=pid+'t'+(++WID);return `<div class="wi" data-id="${id}"><div class="q">${fmt(it.q)}</div><div class="tfrow"><button class="opt" data-k="tf" data-i="1" data-a="${it.a?1:0}" data-id="${id}">TRUE</button><button class="opt" data-k="tf" data-i="0" data-a="${it.a?1:0}" data-id="${id}">FALSE</button></div><div class="fb" id="fb${id}" data-why="${esc(it.why||'')}"></div></div>`},
+order:(it,pid)=>{const id=pid+'o'+(++WID);const idx=it.items.map((_,i)=>i);const r=RNG(WID*977+it.items.length);const sh=idx.slice().sort(()=>r()-.5);
+return `<div class="wi" data-id="${id}"><div class="q">${fmt(it.q)}</div>${sh.map(i=>`<div class="ord"><select data-pos="${i}"><option value="">#</option>${idx.map(n=>`<option value="${n}">${n+1}</option>`).join('')}</select><span>${fmt(it.items[i])}</span></div>`).join('')}<button class="chk" data-k="order" data-id="${id}">Check my order</button><div class="fb" id="fb${id}"></div></div>`},
+match:(it,pid)=>{const id=pid+'m'+(++WID);const r=RNG(WID*131+7);const defs=it.pairs.map((p,i)=>[p[1],i]).sort(()=>r()-.5);const L='ABCDEFGH';
+return `<div class="wi" data-id="${id}"><div class="q">${fmt(it.q)}</div><div class="mdefs">${defs.map((d,j)=>`<div><b>${L[j]}.</b> ${fmt(d[0])}</div>`).join('')}</div>${it.pairs.map((p,i)=>`<div class="ord"><select data-pos="${i}" data-ans="${defs.findIndex(d=>d[1]===i)}"><option value="">?</option>${defs.map((_,j)=>`<option value="${j}">${L[j]}</option>`).join('')}</select><span><b>${fmt(p[0])}</b></span></div>`).join('')}<button class="chk" data-k="match" data-id="${id}">Check matches</button><div class="fb" id="fb${id}"></div></div>`},
+fill:(it,pid)=>{const id=pid+'f'+(++WID);return `<div class="wi" data-id="${id}"><div class="q">${fmt(it.q)}</div><input class="fin" type="text" placeholder="type your answer" data-ans="${esc(it.a.join('|'))}" autocomplete="off"><button class="chk" data-k="fill" data-id="${id}">Check</button><div class="fb" id="fb${id}" data-why="${esc(it.why||'')}"></div></div>`},
+write:(it,pid)=>{const id=pid+'w'+(++WID);return `<div class="wi" data-id="${id}"><div class="q">✏️ ${fmt(it.q)}</div><textarea class="wr" data-note="${id}" rows="${it.rows||4}" placeholder="${esc(it.ph||'Write here…')}">${esc(STATE.notes[id]||'')}</textarea></div>`},
+vocab:(it,pid)=>`<div class="wi"><div class="q">📖 Word Wall</div>${it.words.map(w=>`<div class="vw"><b>${fmt(w[0])}</b> — ${fmt(w[1])}</div>`).join('')}</div>`,
+note:(it)=>`<div class="wi note">${fmt(it.t)}</div>`,
+html:(it)=>`<div class="wi">${it.h}</div>`,
+draw:(it,pid)=>{const id=pid+'d'+(++WID);return `<div class="wi"><div class="q">🎨 ${fmt(it.q)}</div><canvas class="dr" id="${id}" width="440" height="${it.h||170}"></canvas><div class="drt"><span class="sw" data-c="#222" style="background:#222"></span><span class="sw" data-c="#c0392b" style="background:#c0392b"></span><span class="sw" data-c="#2a3f8f" style="background:#2a3f8f"></span><span class="sw" data-c="#2f8f57" style="background:#2f8f57"></span><span class="sw" data-c="#e0a82e" style="background:#e0a82e"></span><button class="mini" data-clr="${id}">clear</button></div></div>`},
+search:(it,pid)=>{const id=pid+'s'+(++WID);return `<div class="wi"><div class="q">🔎 ${fmt(it.q)}</div><div class="ws" id="${id}" data-w="${esc(it.words.join('|'))}" data-seed="${it.seed||5}"></div><div class="wl" id="wl${id}">${it.words.map(w=>`<span data-w="${w}">${w}</span>`).join('')}</div><div class="note2">Tap letters to highlight a word. Tap the word in the list when you find it!</div></div>`},
+scramble:(it,pid)=>{const id=pid+'x'+(++WID);return `<div class="wi"><div class="q">🔀 ${fmt(it.q)}</div>${it.words.map(w=>`<div class="scr"><span class="scw">${shuf(w[0])}</span><input class="fin sm" type="text" data-ans="${esc(w[0].toLowerCase())}" placeholder="?"><span class="hint">${esc(w[1])}</span></div>`).join('')}<button class="chk" data-k="scr" data-id="${id}">Check</button><div class="fb" id="fb${id}"></div></div>`},
+cards:(it,pid)=>`<div class="wi"><div class="q">${fmt(it.q)}</div><div class="cards">${it.cards.map(c=>`<div class="fc" tabindex="0"><div class="fcf">${fmt(c[0])}</div><div class="fcb">${fmt(c[1])}</div></div>`).join('')}</div><div class="note2">Tap a card to flip it.</div></div>`,
+checks:(it,pid)=>`<div class="wi"><div class="q">${fmt(it.q)}</div>${it.items.map((t,i)=>{const id=pid+'c'+i;return `<label class="cb"><input type="checkbox" data-ck="${id}" ${STATE.notes[id]?'checked':''}><span>${fmt(t)}</span></label>`}).join('')}</div>`
+};
+function shuf(w){const r=RNG(w.length*911+w.charCodeAt(0));const a=w.toUpperCase().split('');for(let i=a.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[a[i],a[j]]=[a[j],a[i]]}if(a.join('')===w.toUpperCase())a.reverse();return a.join('')}
+function buildWB(pg,no){WID=0;const pid='p'+no;return `<div class="wb ${pg.kind||''}"><div class="wbh"><span class="wbt">${esc(pg.title)}</span><span class="wbs">${esc(pg.sub||'WORKBOOK')}</span></div><div class="wbody">${pg.items.map(it=>W_[it.k](it,pid)).join('')}</div></div>`}
+function wireWB(root){
+root.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{const id=b.dataset.id;const fb=$('#fb'+id,root);if(fb.dataset.done)return;const ok=b.dataset.i===b.dataset.a;const sibs=root.querySelectorAll(`.opt[data-id="${id}"]`);
+if(ok){b.classList.add('good');sibs.forEach(s=>s.disabled=true);fb.dataset.done=1;fb.innerHTML='⭐ Correct! '+esc(fb.dataset.why||'');if(!fb.dataset.miss)star(id)}else{b.classList.add('bad');b.disabled=true;fb.dataset.miss=1;fb.textContent='Not quite — try another one!'}});
+root.querySelectorAll('.chk').forEach(b=>b.onclick=()=>{const id=b.dataset.id,k=b.dataset.k,fb=$('#fb'+id,root),wi=b.closest('.wi');let ok=0,tot=0;
+if(k==='order'){wi.querySelectorAll('select').forEach(s=>{tot++;const g=s.value!==''&&+s.value===+s.dataset.pos;if(g)ok++;s.style.background=g?'#c8f0c8':'#ffd6d6'})}
+else if(k==='match'){wi.querySelectorAll('select').forEach(s=>{tot++;const g=s.value!==''&&+s.value===+s.dataset.ans;if(g)ok++;s.style.background=g?'#c8f0c8':'#ffd6d6'})}
+else if(k==='fill'){const inp=$('.fin',wi);tot=1;const v=inp.value.trim().toLowerCase();const g=inp.dataset.ans.toLowerCase().split('|').some(a=>v===a||v.includes(a));if(g)ok=1;inp.style.background=g?'#c8f0c8':'#ffd6d6'}
+else if(k==='scr'){wi.querySelectorAll('.fin').forEach(i=>{tot++;const g=i.value.trim().toLowerCase()===i.dataset.ans;if(g)ok++;i.style.background=g?'#c8f0c8':'#ffd6d6'})}
+if(ok===tot){fb.innerHTML='⭐ Perfect! '+esc(fb.dataset.why||'');if(!wi.dataset.miss)star(id)}else{wi.dataset.miss=1;fb.textContent=`${ok} of ${tot} right — fix the red ones and check again!`}});
+root.querySelectorAll('.wr').forEach(t=>t.oninput=()=>{STATE.notes[t.dataset.note]=t.value;save()});
+root.querySelectorAll('[data-ck]').forEach(c=>c.onchange=()=>{STATE.notes[c.dataset.ck]=c.checked?1:0;save()});
+root.querySelectorAll('.fc').forEach(c=>c.onclick=()=>c.classList.toggle('flip'));
+root.querySelectorAll('canvas.dr').forEach(cv=>{const g=cv.getContext('2d');let col='#222',dn=false;g.lineCap='round';g.lineWidth=3;g.fillStyle='#fffdf6';g.fillRect(0,0,cv.width,cv.height);
+const pos=e=>{const r=cv.getBoundingClientRect();const t=e.touches?e.touches[0]:e;return[(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]};
+const st=e=>{dn=true;const[x,y]=pos(e);g.beginPath();g.moveTo(x,y);g.strokeStyle=col;e.preventDefault()};const mv=e=>{if(!dn)return;const[x,y]=pos(e);g.lineTo(x,y);g.stroke();e.preventDefault()};const en=()=>dn=false;
+cv.addEventListener('pointerdown',st);cv.addEventListener('pointermove',mv);window.addEventListener('pointerup',en);cv.style.touchAction='none';
+cv.parentNode.querySelectorAll('.sw').forEach(s=>s.onclick=()=>col=s.dataset.c);const c=cv.parentNode.querySelector('.mini');c.onclick=()=>{g.fillStyle='#fffdf6';g.fillRect(0,0,cv.width,cv.height)}});
+root.querySelectorAll('.ws').forEach(buildSearch)}
+function buildSearch(el){const words=el.dataset.w.split('|').map(w=>w.toUpperCase().replace(/[^A-Z]/g,''));const N=11;const r=RNG(+el.dataset.seed*101+words.length);const g=Array.from({length:N},()=>Array(N).fill(''));
+const dirs=[[0,1],[1,0],[1,1],[0,-1],[-1,0]];words.slice().sort((a,b)=>b.length-a.length).forEach(w=>{for(let t=0;t<300;t++){const d=dirs[Math.floor(r()*(w.length>N-1?2:3))];const x0=Math.floor(r()*N),y0=Math.floor(r()*N);const x1=x0+d[0]*(w.length-1),y1=y0+d[1]*(w.length-1);if(x1<0||x1>=N||y1<0||y1>=N)continue;let ok=1;for(let i=0;i<w.length;i++){const c=g[y0+d[1]*i][x0+d[0]*i];if(c&&c!==w[i]){ok=0;break}}if(!ok)continue;for(let i=0;i<w.length;i++)g[y0+d[1]*i][x0+d[0]*i]=w[i];break}});
+const A='ABCDEFGHIJKLMNOPRSTUVWY';el.innerHTML=g.map(row=>row.map(c=>`<i>${c||A[Math.floor(r()*A.length)]}</i>`).join('')).join('');
+el.style.gridTemplateColumns=`repeat(${N},1fr)`;el.querySelectorAll('i').forEach(i=>i.onclick=()=>i.classList.toggle('on'));
+const wl=$('#wl'+el.id);wl.querySelectorAll('span').forEach(s=>s.onclick=()=>s.classList.toggle('found'))}
+
+/* ---------- pages registry & navigation ---------- */
+let PAGES=[],CUR=0;
+function buildPage(i){const pg=PAGES[i];const no=i+1;let h='';
+if(pg.img)return `<img class="gimg" src="${pg.img}" alt="Page ${no} illustration" draggable="false">`;if(pg.t==='story')h=buildStory(pg,no);else if(pg.t==='open')h=buildOpener(pg);else if(pg.t==='wb')h=buildWB(pg,no);else if(pg.t==='html')h=`<div class="fr ${pg.cls||''}">${typeof pg.h==='function'?pg.h(no):pg.h}</div>`;
+return `<div class="pgnum">${no<2?'':no}</div>`+h}
+function show(i,noScroll){i=Math.max(0,Math.min(PAGES.length-1,i));CUR=i;const pg=PAGES[i];const host=$('#page');host.className='page '+(pg.img?'gem':(pg.t==='story'||pg.t==='open'?'comic':pg.t));host.innerHTML=buildPage(i);
+[i+1,i+2].forEach(j=>{const q=PAGES[j];if(q&&q.img){const im=new Image();im.src=q.img}});requestAnimationFrame(()=>{if(pg.img){}else if(pg.t==='story')host.querySelectorAll('.panel').forEach((el,k)=>layoutPanel(el,pg.p[k],(i+1)*13+k*3));else if(pg.t==='open')layoutOpener(host,pg,(i+1)*17);
+wireWB(host);const wbb=$('.wbody',host);if(wbb&&wbb.scrollHeight>wbb.clientHeight+8){const s=$('.wbs',host);if(s)s.textContent+=' · SCROLL ↓'}if(pg.after)pg.after(host)});
+$('#pn').textContent=`Page ${i+1} of ${PAGES.length}`;$('#sel').value=String(pg.ch!==undefined?pg.ch:-1);
+$('#prev').disabled=i===0;$('#next').disabled=i===PAGES.length-1;try{history.replaceState(null,'','#page-'+(i+1));localStorage.setItem('hamilton-pg',i)}catch(e){}
+if(!noScroll)window.scrollTo(0,0);fit()}
+function fit(){const vw=window.innerWidth,vh=window.innerHeight;const top=$('#bar').offsetHeight,bot=$('#nav').offsetHeight;const wf=(vw-16)/PW,hf=(vh-top-bot-14)/PH;let s=vw<720?wf:Math.min(wf,hf);s=Math.max(.5,Math.min(1.7,s));
+const host=$('#page');host.style.transform=`scale(${s})`;$('#pbox').style.width=PW*s+'px';$('#pbox').style.height=PH*s+'px'}
+function go(d){show(CUR+d)}
+document.addEventListener('keydown',e=>{if(/INPUT|TEXTAREA|SELECT/.test((e.target.tagName||'')))return;if(e.key==='ArrowRight')go(1);else if(e.key==='ArrowLeft')go(-1)});
+window.addEventListener('resize',fit);
+let tx=null;document.addEventListener('touchstart',e=>{if(e.target.closest('canvas,textarea,input,select,.ws'))return;tx=e.touches[0].clientX},{passive:true});
+document.addEventListener('touchend',e=>{if(tx==null)return;const dx=e.changedTouches[0].clientX-tx;tx=null;if(Math.abs(dx)>70)go(dx<0?1:-1)},{passive:true});
+function boot(){const sel=$('#sel');sel.innerHTML=`<option value="-1">Jump to…</option>`+CHAPS.map((c,i)=>`<option value="${i}">${c}</option>`).join('');
+sel.onchange=()=>{const v=+sel.value;if(v<0)return;const i=PAGES.findIndex(p=>p.ch===v&&p.first);if(i>=0)show(i)};
+$('#prev').onclick=()=>go(-1);$('#next').onclick=()=>go(1);$('#home').onclick=()=>show(0);$('#toc').onclick=()=>show(5);
+let st=0;const m=location.hash.match(/^#page-(\d+)$/);if(m)st=+m[1]-1;else try{st=+localStorage.getItem('hamilton-pg')||0}catch(e){}
+updStars();show(st,true)}
+
+/* ===== Front matter & authoring helpers ===== */
+const CHAPS=['1 · Island Boy','2 · A Storm, a Ship, a New World','3 · Why Were the Colonists Angry?','4 · Fighting for Freedom','5 · Retreat and Rebound','6 · The General\'s Right Hand','7 · Redoubt 10 and Yorktown','8 · A Country That Wasn\'t Working','9 · Publius Takes Up His Pen','10 · The Treasury Secretary','11 · Honor, Heartbreak & Legacy','★ Extras & Broadway Guide'];
+const OP=(ch,title,year,scene,chars,blurb)=>PAGES.push({t:'open',ch,first:1,n:ch+1,title,year,scene,chars,blurb});
+const ST=(ch,l,p)=>PAGES.push({t:'story',ch,l,p});
+const WB=(ch,title,items,sub)=>PAGES.push({t:'wb',ch,title,items,sub:sub||('CHAPTER '+(ch+1)+' WORKBOOK')});
+const portrait=(k)=>{const p=CHARS[k];return `<svg viewBox="-32 -214 64 96" preserveAspectRatio="xMidYMid slice">${drawChar(k,0,0,200/p.hf,'smile','down')}</svg>`};
+const castCard=(k,n,t)=>`<div class="cc">${portrait(k)}<div class="ci"><b>${n}</b>${t}</div></div>`;
+window.goPage=(i)=>show(i);
+
+PAGES.push({t:'html',cls:'cover',ch:-1,h:()=>`<div class="ct"><div class="ct1">THE TRUE STORY OF A FOUNDING FATHER</div><div class="ct2">ALEXANDER<br>HAMILTON</div><div class="ct3">A Graphic Novel &amp; Workbook for Young Readers</div></div><svg viewBox="0 0 500 330" preserveAspectRatio="xMidYMax slice">${drawScene('sunset',500,330,9)+ship(90,225,1.3)+ship(420,215,1.0,'#efe2c4')+flagUS(40,320,60)+drawChar('wash_s',130,326,250,'neutral','hold')+drawChar('ham_s',250,326,300,'grin','up','sword')+drawChar('eliza',370,326,250,'smile','wave')+post('sunset',500,330,99,9,true)}</svg><div class="cb2">From a tiny island to the birth of a nation · 100+ pages · Read it before the show!</div>`});
+
+PAGES.push({t:'html',ch:-1,h:()=>`<h1>Welcome, History Detective!</h1>
+<p>Soon you'll see the Broadway musical <b>Hamilton</b>. It's full of songs, jokes, and drama — and under all of it is a <b>true story</b> about how a poor orphan from a tiny island helped build the United States.</p>
+<p>This book is your secret preparation. By the end you'll know who everyone is, what the fighting was about, and how the government you live under was invented.</p>
+<h2>How to use this book</h2>
+<ul><li><b>Read each comic page</b> left to right, top to bottom. Yellow boxes tell the story; speech bubbles talk.</li>
+<li>Words with a <span class="gw">red dotted line</span> are tricky history words. Find them in the Glossary near the back.</li>
+<li>After every chapter, <b>two workbook pages</b> let you play, think, write and draw. Every first-try right answer earns a <b>★ star</b>!</li>
+<li>Use the big buttons, the ← → arrow keys, or swipe to turn pages. Jump to any chapter from the menu at the top.</li></ul>
+<h2>Detective rule #1</h2>
+<p>The <b>events</b> in this book are real. The <b>conversations</b> are imagined — nobody wrote down every word. And the <i>musical</i> changes some things for the stage. The back of the book shows you what's real and what's stage magic.</p>
+<h2>Note for grown-ups</h2>
+<p style="font-size:12px">Written for strong readers around age 10. Hard parts of this history — slavery, war, a family scandal, and two duels — are told honestly but gently. Dates follow standard biographies; Hamilton's birth year (1755 or 1757) is genuinely disputed. Quotes from the musical are intentionally not used.</p>`});
+
+PAGES.push({t:'html',ch:-1,h:()=>`<h1>The Cast, Part 1</h1><p style="font-size:12px">These were all <b>real people</b>. Meet them now so you can spot them on stage!</p><div class="cast">${castCard('ham_c','Alexander Hamilton','Orphan from the Caribbean → soldier, writer, first Treasury Secretary.')}${castCard('eliza','Elizabeth "Eliza" Schuyler','Hamilton\'s wife. Smart, kind, and tough. Lived to age 97.')}${castCard('wash','George Washington','Commander of the army, then first President.')}${castCard('burr','Aaron Burr','Lawyer, senator, Hamilton\'s rival. Became Vice President.')}${castCard('ang','Angelica Schuyler','Eliza\'s sharp-witted older sister. Wrote Hamilton lively letters.')}${castCard('jeff','Thomas Jefferson','Wrote the Declaration. Later Hamilton\'s biggest political opponent.')}${castCard('madi','James Madison','"Father of the Constitution." Hamilton\'s partner, then rival.')}${castCard('laf','Marquis de Lafayette','French nobleman who joined Washington at age 19.')}${castCard('laur','John Laurens','Hamilton\'s close friend. Wanted to free enslaved men who fought.')}${castCard('mull','Hercules Mulligan','New York tailor who secretly spied for Washington.')}${castCard('king','King George III','Ruled Britain and the American colonies.')}${castCard('rach','Rachel Faucette','Hamilton\'s mother. Brave and clever, she raised him on Nevis.')}</div>`});
+
+PAGES.push({t:'html',ch:-1,h:()=>`<h1>The Cast, Part 2</h1><p style="font-size:12px">More real people you'll meet along the way.</p><div class="cast">${castCard('phil_t','Philip Hamilton','Alexander and Eliza\'s eldest son. Bright, brave, and beloved.')}${castCard('peggy','Peggy Schuyler','Eliza\'s younger sister, part of the famous Schuyler trio.')}${castCard('schuy','Philip Schuyler','Eliza\'s father. A wealthy New York general.')}${castCard('knox','Hugh Knox','Minister on St. Croix who urged young Alex to keep reading.')}${castCard('mercha','Nicholas Cruger','Merchant who gave Alex a job — and later trusted him with it.')}${castCard('ben','Benjamin Franklin','Scientist and statesman, oldest delegate at the Convention.')}${castCard('adams','John Adams','Second President. Often argued with Hamilton.')}${castCard('steu','Baron von Steuben','Prussian drillmaster who trained the army at Valley Forge.')}${castCard('corn','Lord Cornwallis','British general who surrendered at Yorktown.')}${castCard('cooke','Myles Cooper','Head of King\'s College. Loyal to the king.')}${castCard('eack','George Eacker','Lawyer whose angry words led to a tragedy.')}${castCard('kid1','YOU!','The newest history detective. Grab your notebook!')}</div>`});
+
+PAGES.push({t:'html',ch:-1,h:()=>{const P=(lon,lat)=>[(lon+82)*16,(46-lat)*16];const pts=[[-67,44.8],[-68.8,44.3],[-70.2,43.6],[-70.8,42.9],[-70.7,42.2],[-70,41.8],[-70,41.65],[-71.4,41.45],[-72.9,41.25],[-73.7,40.9],[-72,41],[-71.9,41.05],[-73.9,40.6],[-74,40.4],[-74.1,39.7],[-74.9,38.95],[-75.1,38.4],[-75.9,37.1],[-76,36.9],[-75.5,35.3],[-76.5,34.7],[-77.9,33.9],[-79,33],[-80.8,32],[-81.4,30.7],[-81.3,29.5],[-82,29.5],[-82,46],[-67,46]];
+const land=pts.map(p=>P(p[0],p[1]).map(v=>v.toFixed(1)).join(',')).join(' ');
+const pins=[[1,-62.6,17.15],[2,-64.8,17.75],[3,-71.06,42.36],[4,-74.0,40.7],[5,-73.75,42.65],[6,-76.5,37.24],[7,-75.2,39.95]];
+const pn=pins.map(p=>{const[x,y]=P(p[1],p[2]);return `<circle cx="${x}" cy="${y}" r="8" fill="#b3202a" stroke="#fff" stroke-width="2"/><text x="${x}" y="${y+4}" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" font-family="Comic Neue,sans-serif">${p[0]}</text>`}).join('');
+const route=`<path d="M${P(-62.6,17.15)} L${P(-64.8,17.75)} Q${P(-70,28)} ${P(-71.06,42.36)}" fill="none" stroke="#b3202a" stroke-width="2.5" stroke-dasharray="6 5"/><path d="M${P(-71.06,42.36)} L${P(-74,40.7)}" stroke="#b3202a" stroke-width="2.5" fill="none" stroke-dasharray="6 5"/>`;
+const Q=(lon,lat)=>[(lon+76.1)*85,(41.2-lat)*85];
+const ins=[[8,-75.44,40.1,'Valley Forge'],[9,-74.76,40.22,'Trenton'],[10,-74.67,40.36,'Princeton'],[11,-74.3,40.25,'Monmouth'],[12,-74.2,40.67,'Elizabethtown'],[13,-73.95,40.75,'NYC & Weehawken'],[7,-75.17,39.95,'Philadelphia']].map(p=>{const[x,y]=Q(p[1],p[2]);return `<circle cx="${x}" cy="${y}" r="8" fill="#2a3f8f" stroke="#fff" stroke-width="2"/><text x="${x}" y="${y+4}" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" font-family="Comic Neue,sans-serif">${p[0]===7?'P':p[0]}</text>`}).join('');
+const li=[[-74,40.6],[-73.4,40.64],[-73.4,40.98],[-73.75,40.86],[-73.95,40.7]].map(p=>Q(p[0],p[1]).join(',')).join(' ');
+const nj=[[-74.0,40.5],[-74.0,40.0],[-74.1,39.75],[-74.2,39.5],[-73.4,39.5],[-73.4,40.5]].map(p=>Q(p[0],p[1]).join(',')).join(' ');
+return `<h1>Hamilton's Map</h1><p style="font-size:12px">Not to scale — just to show where the story happens.</p>
+<div style="display:flex;gap:8px;flex:1;min-height:0"><svg viewBox="0 0 352 496" style="flex:0 0 205px;height:100%;background:#bfe3f2;border:3px solid #14213d;border-radius:8px"><polygon points="${land}" fill="#e9dfb8" stroke="#8a7a4a" stroke-width="1.5"/>${route}<ellipse cx="${P(-62.6,17.15)[0]}" cy="${P(-62.6,17.15)[1]}" rx="9" ry="6" fill="#6fbf6f"/>${pn}<text x="30" y="470" font-size="12" fill="#14213d" font-family="Comic Neue" font-weight="700">CARIBBEAN SEA</text><text x="220" y="260" font-size="11" fill="#14213d" font-family="Comic Neue" font-weight="700">ATLANTIC</text></svg>
+<div style="flex:1;font-size:12px;line-height:1.25;overflow:auto"><b style="color:#b3202a">THE BIG MAP</b>
+<div>1. <b>Nevis</b> — where Alexander was born</div><div>2. <b>St. Croix</b> — where he grew up and worked</div><div>3. <b>Boston</b> — first port in North America</div><div>4. <b>New York City</b> — college, war, government</div><div>5. <b>Albany</b> — Eliza's family home &amp; their wedding</div><div>6. <b>Yorktown, Virginia</b> — the last big battle</div><div>7. <b>Philadelphia (P)</b> — Declaration &amp; Constitution</div>
+<svg viewBox="0 0 234 118" style="width:100%;margin:6px 0;background:#bfe3f2;border:3px solid #2a3f8f;border-radius:8px"><rect x="0" y="0" width="234" height="118" fill="#e9dfb8"/><polygon points="${nj}" fill="#bfe3f2"/><polygon points="${li}" fill="#e9dfb8" stroke="#8a7a4a"/>${ins}</svg>
+<b style="color:#2a3f8f">ZOOM: THE MIDDLE COLONIES</b>
+<div>8. <b>Valley Forge</b> — terrible winter camp</div><div>9. <b>Trenton</b> — surprise victory</div><div>10. <b>Princeton</b> — Hamilton's cannons</div><div>11. <b>Monmouth</b> — big battle in summer heat</div><div>12. <b>Elizabethtown</b> — Alex's first school in America</div><div>13. <b>NYC &amp; Weehawken</b> — home, and the duel across the river</div></div></div>
+<p style="font-size:12px;margin-top:4px">Red dotted line: Alexander's journey from the islands to America as a teenager.</p>`}});
+
+PAGES.push({t:'html',ch:-1,h:()=>`<h1>Contents</h1><p style="font-size:12px">Tap a chapter to jump there.</p><div style="overflow:auto;flex:1">${CHAPS.map((c,i)=>{const idx=PAGES.findIndex(p=>p.ch===i&&p.first);return `<button class="tocl" onclick="goPage(${idx})">${c}<span style="float:right;color:#b3202a">p. ${idx+1}</span></button>`}).join('')}</div>`});
+
+/* Chapter 1: Island Boy */
+CHARS.jam=mk({hair:'#9a6a3a',coat:'#6a5a4a',trim:'#e8dcc0',pants:'#4a3a2a',hf:1});
+OP(0,'Island Boy','About 1755–1771 · Nevis & St. Croix','nevis',['ham_k@.5:smile:wave'],'Before Broadway, before the Revolution, a boy grew up on a tiny island in the Caribbean Sea. He had no money, no famous family, and no easy road. But he had a very big brain.');
+
+ST(0,'S3',[
+['nevis',['rach@.5:smile'],'Nevis, a tiny island in the Caribbean Sea, around 1757. (Alexander himself wasn\'t sure of his exact birth year!)',[['rach','A boy! We will name him Alexander.']]],
+['room:warm',['rach@.3:smile','jam@.7:neutral'],'His mother, Rachel, was smart and tough. His father, James, was a Scottish trader who never held on to money.',[['jam','Next year will be better, Rachel.'],['rach','You always say that.']]],
+['harbor',['ham_k@.5:think:down'],'Alex\'s parents never married, and people back then looked down on that. It would sting him his whole life.',[['~ham_k','I\'ll show them what I can do.']]]]);
+
+ST(0,'T3',[
+['harbor',['ham_k@.3:sad','rach@.7:sad'],'When Alex was about ten, the family moved to the island of St. Croix. Soon after, his father left and never came back.',[['ham_k','Where did Papa go?'],['rach','I don\'t know, my love. We will manage.']]],
+['room:warm',['rach@.5:smile:hold:bag'],'Rachel opened a small shop to feed her sons.',[['rach','Flour and sugar! Fresh today!']]],
+['room:night',['ham_k@.5:smile:hold:book'],'At night, Alex read by candlelight. Books were his escape.',[['~ham_k','Someday I\'ll see the whole world.']]]]);
+
+ST(0,'S2',[
+['room:cool',['ham_k@.3:sad','rach@.7:sad'],'Then a terrible fever swept through the island. Rachel became very ill.',[['rach','Be brave, Alexander.'],['ham_k','Mama, please don\'t go!']]],
+['sunset',['ham_k@.5:sad'],'Rachel died in 1768. Alex was still a boy — an orphan with no money and no home of his own.',[['~ham_k','What do I do now?']]]]);
+
+ST(0,'G4',[
+['harbor',['ham_k@.3:smile:hold:ledger','mercha@.72:neutral'],'Alex took a job as a clerk at Beekman & Cruger, a company that shipped goods across the sea.',[['mercha','Count those barrels, boy.']]],
+['office',['ham_k@.5:think:write:quill'],'He learned bookkeeping, trade, and money — skills he would use for the rest of his life.',[['~ham_k','Numbers tell a story.']]],
+['harbor',['worker@.3:sad','cit4@.55:sad','ham_k@.82:worry'],'The ships carried sugar. They also carried enslaved people, who were sold on the docks. Alex saw it with his own eyes.',[['~ham_k','This is cruel.']]],
+['room',['knox@.3:smile:hold:book','ham_k@.72:grin'],'A minister named Hugh Knox lent Alex books. He read every one he could get.',[['knox','A mind like yours needs books!']]]]);
+
+ST(0,'T3',[
+['office',['mercha@.3:worry','ham_k@.7:surprise'],'When Alex was about fourteen, his boss got sick and sailed away for months. Guess who ran the business?',[['mercha','You\'re in charge, Alex.'],['ham_k','Me?!']]],
+['harbor',['ham_k@.35:angry:point','cit2@.75:angry'],'He ordered goods and bargained with captains twice his age.',[['ham_k','A fair price, Captain!']]],
+['room:night',['ham_k@.5:think:write:quill'],'Still, he wanted more than a clerk\'s life. He wrote to a friend about his dreams.',[['~ham_k','I need a chance to prove myself.']]]]);
+
+ST(0,'S3',[
+['nevis',['ham_k@.5:worry'],'Alex was clever and hard-working — but stuck on a small island with no money for college.',[]],
+['sunset',['ham_k@.5:think'],'He kept reading, kept writing, and kept hoping for a way out.',[['~ham_k','There has to be a way.']]],
+['storm',['ham_k@.5:surprise'],'Then, in the summer of 1772, the sky turned black. The wind began to howl…',[['*','WHOOOOSH!']]]]);
+
+WB(0,'Island Boy: Check Your Memory',[
+{k:'quiz',q:'Where was Alexander Hamilton born?',o:['New York City','The island of Nevis','London','Boston'],a:1,why:'Nevis is a tiny island in the Caribbean.'},
+{k:'tf',q:'True or false: Alexander\'s parents were married.',a:false,why:'They never married, and people judged him for it.'},
+{k:'quiz',q:'What job did Alex have as a teenager?',o:['Ship captain','Soldier','Clerk at a trading company','Teacher'],a:2,why:'He worked for Beekman & Cruger, learning bookkeeping and trade.'},
+{k:'order',q:'Put these events in order (1 = first):',items:['Alexander is born on Nevis','The family moves to St. Croix','His father leaves','His mother dies','He runs the trading company while his boss is away']},
+{k:'tf',q:'True or false: Alex ran a business at about age 14.',a:true,why:'His boss was away for months and trusted him with everything.'}]);
+
+WB(0,'Island Boy: Think & Create',[
+{k:'vocab',words:[['**clerk**','a person who keeps records and does office work'],['**orphan**','a child whose parents have died'],['**ledger**','a book where money coming in and going out is written down']]},
+{k:'scramble',q:'Unscramble these chapter words:',words:[['nevis','where he was born'],['orphan','a child with no parents'],['ledger','a money book']]},
+{k:'search',q:'Find the words from Chapter 1:',words:['NEVIS','CLERK','ORPHAN','SUGAR','LEDGER','ISLAND'],seed:3},
+{k:'write',q:'Alex lost his family young but kept going. What helps YOU keep going when something is hard?',rows:3},
+{k:'draw',q:'Draw what you imagine Alex\'s island home looked like.',h:120}]);
+
+/* Chapter 2: A Storm, a Ship, a New World */
+OP(1,'A Storm, a Ship, a New World','1772–1773 · St. Croix → New York','storm',['ham_t@.5:surprise:up'],'A giant hurricane ripped through the island. Alexander wrote about it — and that one letter changed the course of his life.');
+
+ST(1,'S3',[
+['storm',['cit3@.3:shout','wom1@.7:surprise'],'August 31, 1772. A hurricane tore across St. Croix. Roofs flew off. Trees snapped like twigs.',[['cit3','Get inside! Hurry!'],['*','CRASH!']]],
+['room:cool',['ham_t@.25:worry','wom2@.55:sad','kid2@.82:worry'],'Alex huddled with his neighbors while the storm roared outside.',[['wom2','Hold on, children!']]],
+['storm',['ham_t@.5:sad'],'By morning, much of the island lay in ruins.',[['~ham_t','I have never seen anything like it.']]]]);
+
+ST(1,'T3',[
+['room:night',['ham_t@.5:think:write:quill'],'Days later, Alex wrote a letter describing the storm — every howling wind and every crying neighbor.',[['~ham_t','I have to get this down on paper.']]],
+['room',['knox@.5:surprise:hold:letter'],'Reverend Knox read it and gasped.',[['knox','Remarkable! This must be published!']]],
+['paper',['cit1@.3:surprise:hold:letter','wom1@.72:grin'],'The letter ran in the island newspaper. Everyone was talking.',[['cit1','Who wrote this?'],['wom1','A teenage clerk!']]]]);
+
+ST(1,'S2',[
+['harbor',['mercha@.2:smile:hold:bag','knox@.5:smile','ham_t@.8:surprise'],'Island leaders agreed: a mind this sharp should not be wasted. They collected money to send Alex to school in America.',[['mercha','We\'ll pay your way, Alex.'],['ham_t','Truly?!']]],
+['harbor',['ham_t@.35:sad:wave','knox@.7:smile:wave'],'In the fall of 1772, Alex boarded a ship. He would never see his home island again.',[['knox','Write to us!'],['ham_t','I will. I promise.']]]]);
+
+ST(1,'G4',[
+['ship',['ham_t@.5:think:hold:book'],'Weeks at sea. Alex studied by lantern light and dreamed of what was ahead.',[]],
+['city',['cit1@.2:smile','cit5@.45:shout','wom3@.7:smile','ham_t@.9:surprise'],'New York City! Carts, shops, and people shouting in a dozen accents.',[['ham_t','So many people!']]],
+['room:warm',['mull@.3:grin:hold:tape','ham_t@.72:smile'],'In New York, Alex stayed with the Mulligan family. Their son Hercules was a tailor.',[['mull','Welcome! Let me measure you for a coat.']]],
+['college',['ham_t@.5:think:hold:book'],'Then Alex studied at a school in Elizabethtown, New Jersey, to prepare for college.',[['~ham_t','I have so much to catch up on.']]]]);
+
+ST(1,'T3',[
+['room:night',['ham_t@.5:think:write:quill'],'Alex studied day and night — Latin, math, history. He wanted to finish in half the usual time.',[['ham_t','One more chapter…']]],
+['college',['ham_t@.3:worry','cooke@.72:neutral'],'Princeton said no to his fast-track plan. King\'s College in New York said yes!',[['cooke','You may study at your own pace.']]],
+['college',['ham_t@.5:grin:up'],'In 1773, Alex began at King\'s College. Today it is called Columbia University.',[['ham_t','Yes!']]]]);
+
+ST(1,'S3',[
+['college',['ham_t@.3:shout:point','cit3@.6:smile','cit5@.85:smile'],'Alex joined a debate group and practiced speaking until he was very good at it.',[['ham_t','Reason must beat force!']]],
+['boston',['cit1@.3:shout:up','cit2@.7:shout:up'],'Then news came from Boston: something big was happening between the colonies and the king…',[['cit1','Throw it all in the harbor!'],['*','SPLASH!']]],
+['sunset',['ham_t@.5:think'],'Alex was about to step into the middle of history.',[['~ham_t','Which side will I choose?']]]]);
+
+WB(1,'A New World: Check Your Memory',[
+{k:'quiz',q:'What did Alex write about that made him famous on his island?',o:['A horse race','A hurricane','A royal wedding','A pirate attack'],a:1,why:'His powerful letter about the storm was printed in the newspaper.'},
+{k:'quiz',q:'How did Alex get the money to go to America?',o:['His father paid','He won a contest','Island leaders collected it','He sold his books'],a:2,why:'People were so impressed by his writing that they paid for his education.'},
+{k:'order',q:'Put the story in order:',items:['A hurricane hits St. Croix','Alex writes a letter about it','The newspaper prints the letter','Leaders raise money for school','Alex sails to America','Alex starts at King\'s College']},
+{k:'match',q:'Match each name with its meaning:',pairs:[['King\'s College','became Columbia University'],['Hugh Knox','minister who lent Alex books'],['Mulligan','tailor who later spied for Washington']]},
+{k:'fill',q:'The storm that changed Alex\'s life was a ______.',a:['hurricane'],why:'Hurricanes are powerful ocean storms.'}]);
+
+WB(1,'A New World: Think & Create',[
+{k:'vocab',words:[['**colony**','land ruled by another country far away'],['**debate**','a organized argument where each side gives reasons'],['**Loyalist**','a colonist who stayed loyal to the king']]},
+{k:'cards',q:'Fact Flip! Guess first, then tap the card.',cards:[['How old was Alex when he left his island?','Only about 15 to 17 — and he came alone! (Historians disagree on his birth year.)'],['Did Alex ever go back to the Caribbean?','Never. He never saw it again.'],['What does Columbia University used to be called?','King\'s College!'],['Who wrote the letter?','Alex did — and it changed his life.']]},
+{k:'write',q:'Alex left home all alone as a teenager. How do you think he felt? Write 2–3 sentences.',rows:3},
+{k:'draw',q:'Draw a ship carrying Alex across the sea!',h:130}]);
+
+/* Chapter 3: Why Were the Colonists Angry? */
+OP(2,'Why Were the Colonists Angry?','1607–1774 · The Thirteen Colonies','boston',['cit1@.3:shout:up','cit2@.7:shout:up:torch'],'To understand Hamilton\'s world, you need to know why thirteen colonies on the edge of North America decided to stand up to the mightiest empire on Earth.');
+
+ST(2,'S3',[
+['ship',['cit1@.3:smile','wom1@.55:smile','kid1@.78:grin'],'Starting in 1607, people from Britain crossed the ocean to build new lives. Eventually there were thirteen British colonies along the Atlantic coast.',[]],
+['city',['cit3@.3:smile:hold:scroll','cit5@.7:grin'],'Colonists farmed, built towns, and elected local leaders. But the king and Parliament in London made the big rules.',[['cit3','We vote for our town council!']]],
+['palace',['king@.5:smirk:hips'],'King George III ruled from across the ocean. Letters took weeks to cross the sea.',[['king','They are MY colonies.']]]]);
+
+ST(2,'T3',[
+['battle',['sold@.3:shout:hold:musket','brit@.7:shout'],'Britain won a huge war against France in the 1760s. But the war cost a fortune.',[['*','BOOM!']]],
+['palace',['king@.35:worry:hold:bag','brit@.75:neutral'],'Now Britain owed mountains of money.',[['brit','Let the colonists help pay, Your Majesty.']]],
+['city',['cit1@.3:angry:hold:scroll','cit2@.72:angry'],'So Parliament began taxing the colonists.',[['cit1','Taxes?! Nobody asked us!']]]]);
+
+ST(2,'S2',[
+['city',['brit@.3:neutral:hold:scroll','cit1@.72:angry'],'In 1765 the Stamp Act put a tax on paper — newspapers, legal papers, even playing cards.',[['brit','Pay the stamp tax, please.'],['cit1','A tax on PAPER?!']]],
+['city',['cit1@.2:shout:up','cit3@.4:shout:up','cit5@.6:shout:up','wom1@.8:shout:up'],'Colonists protested. They had no members in Parliament to speak for them. Their rallying cry: "No taxation without representation!"',[['cit1','No taxation without representation!']]]]);
+
+ST(2,'G4',[
+['city',['brit@.3:shout:hold:musket','cit2@.72:shout'],'Boston, 1770: a crowd threw snowballs at British soldiers. Shots rang out and five colonists died. It was called the Boston Massacre.',[['*','BANG!']]],
+['room',['cit3@.3:smile:hold:scroll','cit1@.72:grin'],'Groups called the Sons of Liberty organized boycotts: refusing to buy British goods.',[['cit3','We\'ll make our own cloth!']]],
+['harbor',['brit@.3:neutral','cit2@.72:angry'],'In 1773 the Tea Act arrived. Colonists saw it as another sneaky way to make them pay.',[['cit2','Not one more penny!']]],
+['boston',['cit1@.3:shout:up','cit2@.7:grin:up:torch'],'December 16, 1773: protesters dumped 342 chests of tea into Boston Harbor. The Boston Tea Party!',[['*','SPLASH!']]]]);
+
+ST(2,'T3',[
+['palace',['king@.35:angry:point','brit@.75:worry'],'King George was furious. In 1774 Parliament passed harsh laws the colonists called the Intolerable Acts. Boston\'s harbor was closed.',[['king','Teach them a lesson!']]],
+['city',['cit2@.3:smile:hold:bag','wom2@.72:smile'],'Other colonies sent food and supplies to Boston.',[['wom2','We\'re all in this together.']]],
+['hall',['wash@.25:neutral','ben@.5:smile','adams@.78:smile:point'],'In September 1774, leaders from the colonies met in Philadelphia: the First Continental Congress.',[['adams','We must stand together.']]]]);
+
+ST(2,'S3',[
+['college',['ham_t@.5:think:write:quill'],'Back in New York, a college student was watching the news very closely.',[['~ham_t','The colonists have a point.']]],
+['college',['ham_t@.35:grin:up:scroll','cit3@.75:surprise'],'Still a teenager, Alexander wrote a pamphlet defending the Congress and the colonists\' rights.',[['cit3','A college boy wrote this?!']]],
+['college',['ham_t@.3:shout:point','cit2@.6:angry','cit1@.85:angry'],'In May 1775 an angry mob came for Myles Cooper, King\'s College\'s Loyalist president. Alex stood at the door and talked, buying time for Cooper to escape.',[['ham_t','Wait! Hear me out!']]]]);
+
+WB(2,'Why Were They Angry? Check Your Memory',[
+{k:'quiz',q:'What did "No taxation without representation" mean?',o:['Taxes should be lower','Colonists had no voice in Parliament, so they shouldn\'t be taxed by it','Kings should not exist','Tea should be free'],a:1,why:'They paid taxes decided by a government they had no vote in.'},
+{k:'order',q:'Put these in order (1 = first):',items:['Stamp Act','Boston Massacre','Boston Tea Party','Intolerable Acts','First Continental Congress']},
+{k:'match',q:'Match each word to its meaning:',pairs:[['Parliament','Britain\'s lawmaking group'],['Boycott','refusing to buy something as protest'],['Loyalist','colonist who stayed loyal to the king']]},
+{k:'tf',q:'True or false: The Boston Tea Party happened in a tea shop.',a:false,why:'Protesters dumped tea into Boston Harbor.'},
+{k:'fill',q:'The king of Britain was King George the ______.',a:['third','iii','3'],why:'George III ruled during the American Revolution.'}]);
+
+WB(2,'Why Were They Angry? Think & Create',[
+{k:'vocab',words:[['**tax**','money people must pay to a government'],['**protest**','showing strong disagreement in public'],['**pamphlet**','a short booklet that shares an argument']]},
+{k:'search',q:'Find the revolution words:',words:['TAX','TEA','KING','STAMP','BOYCOTT','CONGRESS'],seed:11},
+{k:'write',q:'Two sides! (1) Write one reason a colonist would say taxes were unfair. (2) Write one reason Britain would say they were fair.',rows:5},
+{k:'draw',q:'Draw a protest sign for the Boston Tea Party!',h:120}]);
+
+/* Chapter 4: Fighting for Freedom */
+OP(3,'Fighting for Freedom','1775–1776 · Lexington to Independence','battle',['wash_s@.35:neutral:hold:sword','ham_s@.7:shout:up:sword'],'The argument turned into a war. Colonists wrote an unforgettable declaration, and Alexander traded his books for cannons.');
+
+ST(3,'S3',[
+['farm',['farmer@.3:angry:hold:musket','brit@.75:neutral'],'April 19, 1775. British soldiers marched to seize colonial gunpowder. Local militia called minutemen were waiting.',[['farmer','Stand your ground!']]],
+['battle',['farmer@.3:shout:hold:musket','brit@.7:shout:hold:musket'],'Someone fired. Then more shots. The Revolutionary War had begun at Lexington and Concord.',[['*','BANG!']]],
+['farm',['cit1@.3:shout:up','wom1@.7:shout:up'],'Word spread fast from town to town.',[['cit1','Fighting at Lexington! To arms!']]]]);
+
+ST(3,'T3',[
+['battle',['sold@.3:shout:hold:musket','brit@.7:shout'],'In June, colonists fought at Bunker Hill near Boston. They lost the hill, but hurt the British badly. They could stand up to professional soldiers!',[['*','BOOM!']]],
+['hall',['adams@.5:smile:point'],'Congress met again and decided to create an army.',[['adams','Choose Washington to lead it!']]],
+['field',['wash_s@.5:neutral:hold:sword'],'George Washington, a tall Virginia planter, became commander in chief.',[['wash_s','I will do my best.']]]]);
+
+ST(3,'S2',[
+['room',['reader@.3:think:hold:book','cit3@.72:surprise:hold:scroll'],'In January 1776, Thomas Paine\'s pamphlet Common Sense asked bluntly: why should a faraway king rule us? Thousands read it.',[['reader','Why DO we need a king?']]],
+['city',['cit1@.2:smile','wom2@.4:smile','cit4@.62:think','cit5@.85:smile'],'The idea of independence — becoming a free country — spread through kitchens and taverns.',[['cit4','A brand new country…']]]]);
+
+ST(3,'G4',[
+['hall',['jeff@.2:think:write:quill','adams@.55:smile','ben@.85:smile'],'In June 1776, Congress asked five men to write a statement explaining why the colonies were breaking free.',[]],
+['room',['jeff@.5:think:write:quill'],'Thomas Jefferson, only 33, wrote most of the Declaration of Independence.',[['~jeff','Life, liberty, and the pursuit of happiness…']]],
+['hall',['adams@.3:grin:up','ben@.55:smile','jeff@.8:smile'],'Congress approved it on July 4, 1776. It said people have rights no king can take away.',[['adams','It is done!']]],
+['city',['reader@.3:shout:hold:scroll','cit1@.6:surprise','wom2@.85:smile'],'Copies were printed and read aloud in town squares.',[['reader','We are free and independent!']]]]);
+
+ST(3,'T3',[
+['room',['wom2@.3:think','worker@.72:sad'],'The Declaration said "all men are created equal." But in 1776, enslaved people, women, and Native Americans were not treated as equal. The words were bigger than the reality.',[['~wom2','Equal… for whom?']]],
+['sunset',['cit3@.5:think'],'Some Americans saw the gap right away.',[['cit3','We must live up to these words.']]],
+['paper',['cit5@.5:smile:hold:scroll'],'People have worked to close that gap ever since — and still do.',[['cit5','A promise to keep.']]]]);
+
+ST(3,'S3',[
+['college',['ham_t@.5:think:hold:book'],'Alexander was about 19. He put down his books and studied cannons, drills, and battle tactics.',[['~ham_t','I can learn this.']]],
+['field',['ham_s@.2:shout:point','sold@.45:smile:hold:musket','sold2@.68:smile:hold:musket','sold3@.9:smile:hold:musket'],'In March 1776, New York made him captain of an artillery company. He drilled his men until they were sharp.',[['ham_s','Again! Load, aim, fire!']]],
+['battle',['ham_s@.5:angry:point:sword'],'Soon the war would reach New York — and Alexander\'s company would be in the thick of it.',[['*','BOOM!']]]]);
+
+WB(3,'Fighting for Freedom: Check Your Memory',[
+{k:'quiz',q:'Who wrote most of the Declaration of Independence?',o:['George Washington','Thomas Jefferson','Alexander Hamilton','King George III'],a:1,why:'Jefferson was only 33 when he wrote it.'},
+{k:'quiz',q:'What was a "minuteman"?',o:['A fast runner','A colonial militiaman ready to fight at a minute\'s notice','A tax collector','A British officer'],a:1,why:'Minutemen were farmers and shopkeepers who trained to be ready quickly.'},
+{k:'order',q:'Put these in order:',items:['Lexington and Concord','Bunker Hill','Washington named commander','Common Sense is published','Declaration of Independence approved']},
+{k:'tf',q:'True or false: Alexander Hamilton led an artillery company when he was around 19.',a:true,why:'He taught himself and drilled his men hard.'},
+{k:'fill',q:'The Declaration of Independence was approved on July ___, 1776.',a:['4','fourth','4th'],why:'We celebrate it every Fourth of July!'}]);
+
+WB(3,'Fighting for Freedom: Think & Create',[
+{k:'vocab',words:[['**militia**','citizens who train to fight in emergencies'],['**independence**','being free to govern yourself'],['**artillery**','large guns like cannons']]},
+{k:'write',q:'Write your own "Declaration of Independence" for your family or class: list THREE rights everyone should have.',rows:5},
+{k:'draw',q:'Design a flag for a brand-new country!',h:140},
+{k:'cards',q:'Who am I? Guess, then flip!',cards:[['I wrote most of the Declaration of Independence.','Thomas Jefferson'],['I led the Continental Army.','George Washington'],['I wrote the pamphlet Common Sense.','Thomas Paine'],['I led a cannon company at about 19.','Alexander Hamilton']]}]);
+
+/* Chapter 5: Retreat and Rebound */
+OP(4,'Retreat and Rebound','1776–1778 · New York to Valley Forge','river',['wash_s@.35:neutral:point','sold@.65:worry:hold:musket'],'The war began with defeats. But one icy Christmas night, a risky gamble turned everything around — and a general noticed a very talented young captain.');
+
+ST(4,'S3',[
+['battle',['brit@.3:neutral','brit@.7:neutral'],'August 1776. A giant British fleet arrived in New York — hundreds of ships and tens of thousands of soldiers.',[]],
+['battle',['wash_s@.3:worry','sold@.7:sad'],'Washington\'s untrained army lost the Battle of Long Island. The Americans were nearly trapped.',[['wash_s','We must get out of here.']]],
+['river',['sold@.25:worry:hold:musket','wash_s@.55:neutral','sold2@.82:neutral'],'Under cover of night and fog, boats secretly carried the army across the river to safety.',[]]]);
+
+ST(4,'T3',[
+['battle',['ham_s@.4:shout:point','sold@.8:shout'],'The army retreated again and again. Alexander\'s cannons kept firing to slow the British. Washington noticed the young captain.',[['ham_s','Fire!'],['*','BOOM!']]],
+['winter',['sold3@.3:sad','sold2@.7:sad'],'Across New Jersey, many soldiers had no shoes.',[['sold3','So cold…']]],
+['room',['wash@.3:smile','reader@.75:shout:hold:scroll'],'Thomas Paine\'s fiery words were read aloud to lift the army\'s spirits.',[['reader','Do not give up!']]]]);
+
+ST(4,'S2',[
+['river',['wash_s@.3:angry:point','sold@.62:worry','sold2@.88:worry'],'Christmas night, 1776. Through snow and sleet, Washington\'s army crossed the icy Delaware River.',[['wash_s','Keep moving, men!']]],
+['battle',['ham_s@.3:shout:point:sword','sold@.65:shout:hold:musket'],'At dawn they surprised Hessian soldiers — Germans hired by Britain — in Trenton, New Jersey. Hamilton\'s guns helped win the day.',[['*','BOOM!']]]]);
+
+ST(4,'G4',[
+['battle',['wash_s@.4:shout:up:sword','sold@.8:shout'],'Days later at Princeton, New Jersey, the Americans won again.',[]],
+['college',['ham_s@.5:grin:point'],'Legend says Hamilton\'s cannonball blasted into Nassau Hall, where British soldiers hid.',[['*','BOOM!']]],
+['room',['wash@.3:smile:hold:letter','ham_s@.75:surprise'],'Washington invited Alexander to join his personal staff.',[['wash','I need a writer like you.']]],
+['winter:fire',['sold3@.5:smile:hold:musket'],'The army rested for the winter in Morristown, New Jersey.',[]]]);
+
+ST(4,'T3',[
+['room',['ham_a@.3:grin:write:quill','wash@.75:neutral:point'],'In March 1777 Alexander became a lieutenant colonel and Washington\'s aide-de-camp: an assistant for the commander in chief.',[['wash','Draft this letter to Congress.']]],
+['room:night',['ham_a@.5:think:write:quill'],'He wrote orders and letters, often all night.',[['~ham_a','One more page…']]],
+['room',['ham_a@.2:smile','laur@.5:grin','laf@.8:grin'],'He made close friends: John Laurens and the young Marquis de Lafayette.',[['laf','Bonjour, mes amis!']]]]);
+
+ST(4,'S3',[
+['winter',['sold@.25:sad','sold2@.55:sad','sold3@.82:sad'],'December 1777. The army trudged into winter camp at Valley Forge, Pennsylvania. It was freezing.',[]],
+['winter:fire',['wash@.3:worry','sold@.7:sad:hold:musket'],'Food was scarce, blankets were thin, and thousands got sick. Washington begged Congress for supplies.',[['wash','My men need food and shoes.']]],
+['field',['steu@.2:shout:point','sold@.45:smile:hold:musket','sold2@.68:smile:hold:musket','sold3@.9:smile:hold:musket'],'Baron von Steuben, a Prussian officer, taught them to march and fight as a team. By spring the ragged army was ready.',[['steu','Left! Right! Left!']]]]);
+
+WB(4,'Retreat and Rebound: Check Your Memory',[
+{k:'quiz',q:'Which river did Washington\'s army cross on Christmas night, 1776?',o:['The Hudson','The Delaware','The Mississippi','The Potomac'],a:1,why:'The surprise attack on Trenton followed.'},
+{k:'quiz',q:'What were Hessians?',o:['Pirates','German soldiers hired by Britain','French sailors','Colonial farmers'],a:1,why:'Britain paid German states for soldiers.'},
+{k:'order',q:'Put these in order:',items:['Battle of Long Island','Crossing the Delaware & Trenton','Battle of Princeton','Hamilton joins Washington\'s staff','Valley Forge winter camp']},
+{k:'match',q:'Match the person:',pairs:[['Von Steuben','trained the army at Valley Forge'],['Lafayette','young French nobleman who joined the cause'],['Aide-de-camp','assistant to a general']]},
+{k:'tf',q:'True or false: Hamilton became Washington\'s aide in 1777.',a:true,why:'He was about 20 and wrote many of Washington\'s letters.'}]);
+
+WB(4,'Retreat and Rebound: Think & Create',[
+{k:'vocab',words:[['**retreat**','to pull back from a fight'],['**aide-de-camp**','a personal assistant to a general'],['**winter quarters**','where armies rest during winter']]},
+{k:'search',q:'Find the words:',words:['TRENTON','HESSIAN','DELAWARE','PRINCETON','FOG'],seed:17},
+{k:'write',q:'Valley Forge was freezing. You may pack only THREE items. What do you bring and why?',rows:4},
+{k:'draw',q:'Draw Washington\'s boats crossing the icy river!',h:130}]);
+
+/* Chapter 6: The General's Right Hand */
+OP(5,'The General\'s Right Hand','1777–1781 · Headquarters, Love, and a Quarrel','room',['ham_a@.35:smile:write:quill','wash@.7:neutral:point'],'For four years Alexander worked beside Washington — writing his letters, planning his moves, and itching to fight. He also found love, and had a big argument.');
+
+ST(5,'S3',[
+['room',['ham_a@.3:think:write:quill','wash@.72:neutral:point'],'As aide, Alexander was Washington\'s pen. He wrote dozens of letters a day.',[['wash','Tell Congress we need food.']]],
+['room:night',['ham_a@.5:smile:write:quill'],'He wrote quickly, clearly, and persuasively — and never complained about the hours.',[['~ham_a','Another letter for the general.']]],
+['field',['ham_a@.3:worry:hold:letter','wash@.72:neutral'],'But Alex wanted to fight, not just write. He kept asking for a battlefield command.',[['ham_a','Sir, let me lead troops.'],['wash','I need you here.']]]]);
+
+ST(5,'T3',[
+['room:warm',['mull@.3:grin:hold:tape','brit@.72:neutral'],'In British-held New York, Hercules Mulligan the tailor sewed coats for officers — and listened carefully.',[['brit','Make it snug, tailor.'],['~mull','Loose lips…']]],
+['night',['mull@.5:smile:hold:letter'],'He secretly passed what he learned to Washington.',[['~mull','For the general.']]],
+['room',['wash@.5:smile:hold:letter'],'Spies like Mulligan helped the Americans survive.',[['wash','Valuable news. Very valuable.']]]]);
+
+ST(5,'S2',[
+['battle',['wash_s@.3:angry:point','sold@.65:sad','ham_a@.88:shout'],'June 28, 1778: the Battle of Monmouth, New Jersey. It was scorching hot. Soldiers collapsed from the heat.',[['wash_s','Rally the line!']]],
+['battle',['ham_a@.3:surprise:both','wash_s@.7:shout:up:sword'],'Alexander\'s horse was shot out from under him! He scrambled up and kept fighting. Washington rallied the troops and the Americans held their ground.',[['*','BANG!']]]]);
+
+ST(5,'G4',[
+['room',['ham_a@.3:surprise','eliza@.72:smile'],'In winter 1780, in Morristown, Alexander met Elizabeth "Eliza" Schuyler, daughter of a wealthy New York general.',[]],
+['room:warm',['ham_a@.3:grin','eliza@.72:grin'],'Alex was funny and charming. Eliza was smart, kind, and a little shy. They fell in love.',[['ham_a','May I write to you?'],['eliza','I\'d like that.']]],
+['mansion',['ham_c@.3:smile','eliza@.55:smile','peggy@.8:grin'],'They married December 14, 1780, at the Schuyler mansion in Albany, New York.',[['peggy','Hooray for the bride!']]],
+['sunset',['ham_c@.35:smile','eliza@.65:smile'],'Eliza would stand beside Alexander for the rest of his life — and honor his memory for fifty years after.',[]]]);
+
+ST(5,'T3',[
+['room',['wash@.3:angry:point','ham_a@.72:angry'],'February 1781: Washington scolded Alexander for keeping him waiting on a staircase. Alex felt disrespected.',[['wash','You have kept me waiting!'],['ham_a','Sir, I don\'t deserve that!']]],
+['room',['ham_a@.5:sad:hold:letter'],'Hamilton resigned from the general\'s staff.',[['~ham_a','It\'s time to go.']]],
+['field',['ham_a@.5:think'],'He still admired Washington. But he wanted to be a soldier, not just a secretary.',[['~ham_a','I\'ll earn a command.']]]]);
+
+ST(5,'S3',[
+['field',['ham_s@.3:grin:hold:letter','wash@.72:smile'],'After months of asking, Washington agreed. In July 1781 Alexander got command of a light infantry battalion.',[['wash','Colonel, the army needs you.']]],
+['field',['wash_s@.3:think:point','laf@.6:grin','ham_s@.88:smile'],'That summer, the British General Cornwallis camped at Yorktown, Virginia, near the water, with ships nearby.',[['wash_s','Now we have a chance.']]],
+['ship',['laf@.5:grin:up'],'French warships and soldiers sailed in to help. The trap was being set.',[['laf','Vive la liberté!']]]]);
+
+WB(5,'The General\'s Right Hand: Check Your Memory',[
+{k:'quiz',q:'What did an aide-de-camp like Alexander mostly do?',o:['Cook meals','Write letters and carry orders','Build forts','Drive wagons'],a:1,why:'He wrote many of Washington\'s letters and orders.'},
+{k:'quiz',q:'What did Hercules Mulligan do during the war?',o:['Led the navy','Spied while working as a tailor','Wrote the Declaration','Fixed cannons'],a:1,why:'British officers talked in front of him while he sewed their coats.'},
+{k:'tf',q:'True or false: Alexander married Eliza Schuyler in December 1780.',a:true,why:'It happened at the Schuyler mansion in Albany, New York.'},
+{k:'tf',q:'True or false: Alexander stayed on Washington\'s staff until the war ended.',a:false,why:'He resigned in 1781 to seek a battlefield command.'},
+{k:'fill',q:'The battle where Hamilton\'s horse was shot out from under him was ______.',a:['monmouth'],why:'It was fought on a very hot day in New Jersey.'}]);
+
+WB(5,'The General\'s Right Hand: Think & Create',[
+{k:'vocab',words:[['**spy**','a secret agent who collects information'],['**resign**','to quit a job or position'],['**command**','the power to lead soldiers']]},
+{k:'write',q:'Alexander quit because he felt disrespected, but still admired Washington. Have you ever been upset with someone you respect? What did you do?',rows:4},
+{k:'scramble',q:'Unscramble:',words:[['monmouth','hot New Jersey battle'],['spy','Mulligan\'s secret job'],['resign','to quit']]},
+{k:'draw',q:'Draw Alexander writing letters by candlelight.',h:120}]);
+
+/* Chapter 7: Redoubt 10 and Yorktown */
+OP(6,'Redoubt 10 and Yorktown','1781–1783 · Victory!','redoubt',['ham_s@.3:shout:hold:bayonet','sold@.6:shout:hold:bayonet','sold2@.85:shout:hold:bayonet'],'In the dark of night, with unloaded muskets and fixed bayonets, Alexander led one of the boldest charges of the Revolution.');
+
+ST(6,'S3',[
+['field',['wash_s@.3:neutral:point','laf@.6:smile','sold@.88:smile'],'Fall 1781. Washington\'s army and thousands of French troops marched hundreds of miles to Virginia.',[]],
+['ship',['laf@.5:grin:point'],'French warships blocked the British navy in Chesapeake Bay. Cornwallis was trapped by land and sea.',[]],
+['field',['corn@.3:worry','brit@.7:worry'],'Cornwallis dug in at Yorktown. The allies dug trenches closer and closer, firing day and night.',[['*','BOOM!']]]]);
+
+ST(6,'T3',[
+['redoubt',['wash_s@.3:neutral:point','ham_s@.75:smile'],'Two British forts, Redoubts 9 and 10, blocked the way. They had to be taken first.',[['wash_s','Colonel Hamilton, lead the attack.']]],
+['night',['ham_s@.35:angry:point:sword','sold@.8:worry:bayonet'],'To stay quiet in the dark, Alexander ordered his men to leave their muskets unloaded and use bayonets.',[['ham_s','Quiet. Bayonets ready.']]],
+['redoubt',['sold@.3:shout:hold:bayonet','sold2@.7:shout:hold:bayonet'],'October 14, 1781. Night attack!',[['*','CHARGE!']]]]);
+
+ST(6,'S2',[
+['redoubt',['ham_s@.3:shout:up:sword','sold@.6:shout:hold:bayonet','sold3@.88:grin:up'],'They stormed the fort and captured it in about ten minutes!',[['ham_s','Forward!'],['*','HURRAH!']]],
+['battle',['laur@.3:grin:point:sword','sold2@.7:smile'],'Alexander\'s dear friend John Laurens helped capture British soldiers trying to flee.',[['laur','We did it, Hamilton!']]]]);
+
+ST(6,'G4',[
+['ship',['corn@.3:worry','brit@.75:sad'],'Cornwallis tried to escape across the York River at night. A violent storm wrecked his plan.',[['*','WHOOSH!']]],
+['field',['corn@.3:sad:hold:letter','wash_s@.75:neutral'],'On October 19, 1781, he surrendered. More than 7,000 British soldiers laid down their weapons.',[]],
+['field',['wash_s@.25:smile:up:sword','laf@.55:grin:up','ham_s@.85:grin:up'],'The Americans and French had won the decisive victory.',[]],
+['city',['cit1@.2:grin:up','wom1@.5:grin:up','kid2@.8:grin:up'],'At home, bells rang and people cheered in the streets.',[['wom1','Victory!']]]]);
+
+ST(6,'T3',[
+['room:warm',['ham_c@.2:grin','eliza@.5:smile','phil@.8:smile'],'In January 1782, Alexander and Eliza\'s first child, Philip, was born.',[['ham_c','Welcome, little Philip.']]],
+['room',['ham_c@.5:think:hold:book'],'Alex studied law at night and passed the bar exam after just a few months.',[['~ham_c','Law will help build this country.']]],
+['sunset',['ham_c@.5:sad:hold:letter'],'In August 1782 came sad news: John Laurens was killed in a small skirmish in South Carolina.',[['~ham_c','Not Laurens…']]]]);
+
+ST(6,'S3',[
+['hall',['ben@.3:smile:hold:scroll','adams@.72:smile'],'In 1783 the Treaty of Paris made it official: Britain recognized the United States as independent.',[['ben','At last — peace!']]],
+['hall',['wash@.5:smile:hold:scroll'],'Then Washington did something amazing. He handed his power back to Congress and went home. Most victorious generals kept their power. He gave it up.',[['wash','I resign my commission.']]],
+['farm',['ham_c@.5:think'],'The nation was free. But could thirteen separate states really become one country? That was Alexander\'s next big question.',[['~ham_c','Freedom is only the beginning.']]]]);
+
+WB(6,'Yorktown: Check Your Memory',[
+{k:'quiz',q:'How did Hamilton\'s men capture Redoubt 10?',o:['With cannons','With bayonets and unloaded muskets','By boat','By tricking the guards'],a:1,why:'The unloaded muskets kept the attack quiet and fast.'},
+{k:'order',q:'Put in order:',items:['French fleet blocks the British navy','Redoubt 10 is captured','Cornwallis surrenders','Treaty of Paris signed','Washington resigns his command']},
+{k:'fill',q:'Cornwallis surrendered at ______, Virginia.',a:['yorktown'],why:'It was the last major battle of the war.'},
+{k:'tf',q:'True or false: Washington kept his army power after the war.',a:false,why:'He gave it up and went home, which set a great example.'},
+{k:'quiz',q:'Who was Philip?',o:['A British general','Alexander and Eliza\'s eldest son','A French sailor','Washington\'s horse'],a:1,why:'Philip Hamilton was born in January 1782.'}]);
+
+WB(6,'Yorktown: Think & Create',[
+{k:'vocab',words:[['**siege**','surrounding a place to force it to give up'],['**redoubt**','a small fort'],['**treaty**','an agreement between countries']]},
+{k:'write',q:'Washington gave up power even though he could have kept it. Why do you think that mattered?',rows:4},
+{k:'draw',q:'Write a newspaper headline AND draw the front-page picture for the Yorktown victory!',h:140},
+{k:'search',q:'Find the Yorktown words:',words:['YORKTOWN','SIEGE','BAYONET','TREATY','FRANCE'],seed:23}]);
+
+/* Chapter 8: A Country That Wasn't Working */
+OP(7,'A Country That Wasn\'t Working','1781–1787 · The Articles & the Convention','hall',['wash@.2:neutral','madi@.45:think','ham_c@.7:smile','ben@.9:smile'],'The war was won. But the new government was falling apart. A secret summer meeting in Philadelphia would try to invent something brand new.');
+
+ST(7,'S3',[
+['hall',['reader@.3:think:hold:scroll','adams@.72:neutral'],'After the war, the states ran the country under a plan called the Articles of Confederation. It created a weak Congress and no president.',[]],
+['hall',['adams@.3:worry','ben@.72:sad'],'Congress couldn\'t collect taxes. It couldn\'t force states to obey. It couldn\'t even pay its soldiers and debts.',[['adams','We have no money!']]],
+['city',['cit3@.3:angry:hold:bag','cit5@.72:angry'],'Each state printed its own money and made its own trade rules. Doing business across state lines was a mess.',[['cit3','That money is no good here!']]]]);
+
+ST(7,'T3',[
+['farm',['farmer@.3:angry:hold:pitchfork','cit2@.75:angry:hold:pitchfork'],'Massachusetts, 1786: farmers drowning in debt and taxes rose up. Led by Daniel Shays, they shut down courts.',[['farmer','No more unfair taxes!']]],
+['battle',['sold@.3:neutral:hold:musket','sold2@.7:neutral:hold:musket'],'Congress had no army to help. A private militia ended the revolt.',[]],
+['room',['wash@.3:worry','ham_c@.75:worry'],'Washington and Hamilton were alarmed. The country was coming apart.',[['wash','This cannot continue.']]]]);
+
+ST(7,'S2',[
+['room',['ham_c@.3:smile:point','madi@.7:smile'],'In 1786 a small meeting in Annapolis, Maryland, drew delegates from only five states. Hamilton and Madison used it to call for a bigger meeting to fix the government.',[['ham_c','We need a whole new plan.'],['madi','Agreed.']]],
+['hall',['wash@.3:neutral','ham_c@.55:smile','madi@.8:smile'],'The call was heard. Delegates would gather in Philadelphia in May 1787.',[]]]);
+
+ST(7,'G4',[
+['hall',['wash@.2:neutral:hold:scroll','ben@.5:smile','madi@.8:think'],'May 1787: fifty-five delegates gathered in Philadelphia. Washington was chosen to lead the meeting.',[]],
+['hall',['ben@.3:worry','adams@.72:worry'],'They kept the windows shut and the talks secret — even in the summer heat.',[['ben','Phew! It\'s hot in here.']]],
+['hall',['ham_c@.3:shout:point','madi@.65:worry','ben@.9:neutral'],'Hamilton gave a six-hour speech for a very strong national government. Most delegates thought it went too far.',[['ham_c','Only a strong union can protect us!']]],
+['room',['ham_c@.5:think'],'His plan wasn\'t adopted. But he stayed to help. A flawed plan beats no plan.',[['~ham_c','I\'ll work with what we get.']]]]);
+
+ST(7,'T3',[
+['hall',['madi@.3:angry:point','cit3@.75:angry:point'],'Big fight: how many votes should each state get? Big states wanted votes by population. Small states wanted equal votes.',[['madi','Population should count!'],['cit3','Every state is equal!']]],
+['hall',['ben@.5:smile:point'],'The Great Compromise: a House based on population and a Senate with two senators per state.',[['ben','Let\'s do BOTH.']]],
+['hall',['adams@.5:smile:hold:scroll'],'Together, the House and Senate form Congress.',[]]]);
+
+ST(7,'S3',[
+['hall',['cit4@.3:sad','wom2@.7:sad'],'The delegates also argued about slavery. The Three-Fifths Compromise counted each enslaved person as three-fifths of a person for representation — even though enslaved people had no vote and no rights.',[]],
+['hall',['ben@.3:sad','ham_c@.7:sad'],'The Constitution even let the slave trade continue until at least 1808. Many delegates knew it was wrong, but they compromised to hold the states together. Slavery would last for decades — and take a civil war to end.',[]],
+['federal',['ham_c@.3:smile:hold:scroll','wash@.7:smile'],'On September 17, 1787, thirty-nine delegates signed the Constitution. Hamilton was the only signer from New York. Now the states had to approve it.',[]]]);
+
+WB(7,'A Country That Wasn\'t Working: Check Your Memory',[
+{k:'quiz',q:'Why was the government under the Articles of Confederation weak?',o:['It had too many presidents','It could not collect taxes or force states to obey','It only lasted a year','The king ran it'],a:1,why:'Congress had to beg states for money.'},
+{k:'quiz',q:'What did the Great Compromise create?',o:['A king and queen','A House by population and a Senate with 2 per state','A Supreme Court only','A third political party'],a:1,why:'Both big and small states got something.'},
+{k:'order',q:'Order the events:',items:['Articles of Confederation weak','Shays\' Rebellion','Annapolis meeting','Convention opens in Philadelphia','Constitution signed']},
+{k:'tf',q:'True or false: Hamilton signed the Constitution.',a:true,why:'He was New York\'s only signer.'},
+{k:'tf',q:'True or false: The delegates opened the windows and talked in public.',a:false,why:'They kept windows shut and talks secret.'}]);
+
+WB(7,'Civics Corner: Old Plan vs. New Plan',[
+{k:'html',h:'<table class="tbl"><tr><th></th><th>Articles</th><th>Constitution</th></tr><tr><td><b>Leader</b></td><td>No president</td><td>A President</td></tr><tr><td><b>Taxes</b></td><td>Congress couldn\'t tax</td><td>Congress can tax</td></tr><tr><td><b>Courts</b></td><td>No national courts</td><td>Supreme Court & more</td></tr><tr><td><b>Congress</b></td><td>One chamber</td><td>House + Senate</td></tr><tr><td><b>Changing it</b></td><td>All 13 states must agree</td><td>Three-fourths of states</td></tr></table>'},
+{k:'match',q:'Match each branch to its job:',pairs:[['Legislative (Congress)','makes the laws'],['Executive (President)','carries out the laws'],['Judicial (Courts)','explains the laws']]},
+{k:'vocab',words:[['**constitution**','the basic rules of a government'],['**compromise**','each side gives up something to agree'],['**delegate**','someone chosen to speak for others'],['**ratify**','to officially approve']]},
+{k:'write',q:'The delegates had to compromise. When have YOU had to compromise? What did you each give up?',rows:3}]);
+
+/* Chapter 9: Publius Takes Up His Pen */
+CHARS.jay=mk({hair:'#cfc8bd',hs:'wig',coat:'#2a3a4a',trim:'#fbf7ee',hf:.96});
+OP(8,'Publius Takes Up His Pen','1787–1789 · The Federalist Papers','room:night',['ham_c@.5:think:write:quill'],'The Constitution was only a proposal. The states had to say yes. So Alexander picked up his pen — and wrote under a secret name.');
+
+ST(8,'S3',[
+['hall',['reader@.3:smile:hold:scroll','cit1@.7:think'],'The Constitution was only a proposal. Nine of the thirteen states had to approve — to "ratify" — it before it became law.',[]],
+['city',['cit1@.2:angry:point','cit3@.5:smile','wom1@.8:think'],'Americans argued everywhere: in newspapers, taverns, and kitchens.',[['cit1','Congress gets too much power!'],['cit3','We need a strong union!']]],
+['room',['ham_c@.3:smile','cit2@.72:worry:hold:scroll'],'Supporters were called Federalists. Opponents, Anti-Federalists, feared a government that could trample their liberty.',[['cit2','Where are our rights written down?']]]]);
+
+ST(8,'T3',[
+['room:night',['ham_c@.2:grin:write:quill','madi@.5:smile:write:quill','jay@.8:smile:write:quill'],'Hamilton recruited James Madison and John Jay to write essays explaining the Constitution — all under the pen name "Publius."',[['ham_c','We\'ll sign every one "Publius."']]],
+['room:night',['ham_c@.5:think:write:quill'],'Hamilton wrote fast — sometimes several essays a week while working as a lawyer.',[['~ham_c','Another essay due tonight!']]],
+['city',['cit1@.3:smile:hold:letter','wom1@.72:smile'],'The essays appeared in New York newspapers.',[['cit1','Have you read today\'s essay?']]]]);
+
+ST(8,'S2',[
+['paper',['ham_c@.2:smile:hold:book','madi@.5:smile:hold:book','jay@.8:smile:hold:book'],'In all, 85 essays were published. Hamilton wrote about 51, Madison about 29, and Jay 5. They are called the Federalist Papers, and judges and lawyers still read them today.',[]],
+['room',['ham_c@.3:smile:point','cit2@.72:think'],'They explained how the new government would protect freedom: strong, but with its power divided so no one could seize all of it.',[['ham_c','Power must check power.']]]]);
+
+ST(8,'G4',[
+['hall',['reader@.25:smile:hold:scroll','wash@.55:smile','ben@.85:smile'],'Three branches: Congress makes laws, the President carries them out, and the courts explain them. Each can stop the others from going too far: checks and balances.',[]],
+['room',['ham_c@.5:smile:point'],'Hamilton argued that the President should be strong enough to act, and the courts independent enough to protect the Constitution.',[]],
+['hall',['ham_c@.3:shout:point','cit2@.75:angry'],'New York\'s delegates mostly opposed the Constitution. Hamilton argued for weeks at the state meeting in Poughkeepsie.',[['ham_c','Unity makes us strong!']]],
+['hall',['cit1@.3:grin:up','cit3@.72:surprise'],'Then big news: Virginia and New Hampshire had approved. It would go into effect — with or without New York!',[]]]);
+
+ST(8,'T3',[
+['federal',['ham_c@.35:grin:up','madi@.75:smile'],'July 26, 1788: New York voted yes, 30 to 27. Hamilton had helped win a key state.',[]],
+['hall',['cit2@.5:think:hold:scroll'],'Anti-Federalists still wanted basic freedoms in writing.',[['cit2','Put our rights on paper!']]],
+['hall',['madi@.5:smile:hold:scroll'],'Madison promised a Bill of Rights. By 1791, ten amendments protected free speech, religion, fair trials, and more.',[['madi','Your rights, in writing.']]]]);
+
+ST(8,'S3',[
+['federal',['wash_p@.5:neutral'],'In 1789 electors chose George Washington as the first President — unanimously.',[]],
+['federal',['wash_p@.4:smile:up','adams@.65:smile','cit1@.88:grin:up'],'On April 30, 1789, he took the oath of office in New York City, the first capital.',[]],
+['room',['wash_p@.3:neutral:point','ham_c@.72:surprise'],'Washington asked Alexander to be the first Secretary of the Treasury. The country was broke and needed a financial genius.',[['wash_p','Will you serve, Colonel?']]]]);
+
+WB(8,'Publius: Check Your Memory',[
+{k:'quiz',q:'Who wrote the Federalist Papers?',o:['Hamilton, Madison and Jay','Washington and Adams','Jefferson alone','King George III'],a:0,why:'Hamilton wrote about 51 of the 85 essays.'},
+{k:'fill',q:'The pen name used by the writers was ______.',a:['publius'],why:'Publius honors a Roman who helped found a republic.'},
+{k:'quiz',q:'How many states had to ratify the Constitution?',o:['5','9','13','All but one'],a:1,why:'Nine of the thirteen states had to approve it.'},
+{k:'tf',q:'True or false: The Bill of Rights protects freedom of speech and religion.',a:true,why:'The first ten amendments added these protections.'},
+{k:'match',q:'Match the term:',pairs:[['Federalist','supported the Constitution'],['Anti-Federalist','feared a too-powerful government'],['Checks and balances','branches limit each other']]}]);
+
+WB(8,'Publius: Think & Create',[
+{k:'vocab',words:[['**ratify**','to officially approve'],['**amendment**','a change or addition to the Constitution'],['**pen name**','a made-up name a writer uses']]},
+{k:'checks',q:'Bill of Rights Detective: tick the freedoms YOU use or enjoy!',items:['Speak my mind (free speech)','Choose my own religion or none','Gather with friends peacefully','Read what I want (free press)','Have a fair trial if accused']},
+{k:'write',q:'Pretend you\'re Publius! Write one sentence explaining to a neighbor why the country needs one strong government.',rows:3},
+{k:'scramble',q:'Unscramble:',words:[['ratify','officially approve'],['congress','makes the laws'],['publius','the pen name']]}]);
+
+/* Chapter 10: The Treasury Secretary */
+OP(9,'The Treasury Secretary','1789–1795 · Building an Economy','bank',['ham_c@.4:smile:hold:ledger','wash_p@.75:neutral'],'A brand-new country, millions in debt, no banks, no coins. Alexander\'s job: make it work.');
+
+ST(9,'S3',[
+['bank',['ham_c@.3:worry:hold:ledger','wash_p@.72:neutral'],'In 1789 the United States was broke. It owed millions to other countries, banks, and soldiers it hadn\'t paid.',[]],
+['room:night',['ham_c@.5:think:write:quill'],'Alexander studied the numbers day and night — and made a bold plan.',[['~ham_c','Pay every debt. Trust will follow.']]],
+['bank',['ham_c@.3:grin:point','madi@.72:worry'],'The national government would pay its debts in full — and take over the states\' war debts too. Then lenders everywhere would trust the new country.',[['ham_c','A nation that pays its debts earns trust.']]]]);
+
+ST(9,'T3',[
+['room',['jeff@.3:angry:point','madi@.75:angry'],'Jefferson and Madison objected. States like Virginia had paid most of their debts and didn\'t want to help others.',[['jeff','That\'s unfair to Virginia!']]],
+['room:warm',['jeff@.2:smile:hold:cup','ham_c@.5:smile','madi@.8:smile'],'Congress deadlocked. So in June 1790, Jefferson hosted a dinner for the three of them.',[]],
+['room:warm',['madi@.3:smile','jeff@.72:smile'],'The deal: Madison would stop blocking Hamilton\'s plan. In return, the permanent capital would move south to the Potomac River.',[['madi','Deal.']]]]);
+
+ST(9,'S2',[
+['federal',['wash_p@.4:smile:point','cit1@.8:smile'],'That is why Washington, D.C. exists! The capital moved to Philadelphia for ten years, then to a brand-new city on the Potomac.',[['wash_p','A capital on the Potomac.']]],
+['bank',['ham_c@.3:smile:hold:ledger','cit5@.72:smile:hold:bag'],'Hamilton also proposed a national bank to hold government money, lend to businesses, and steady the economy.',[['cit5','A loan for my shop!']]]]);
+
+ST(9,'G4',[
+['room',['jeff@.3:angry:point','ham_c@.72:angry:point'],'Jefferson said the Constitution didn\'t allow a bank. Hamilton said Congress may do what is "necessary and proper" to carry out its duties.',[]],
+['room',['wash_p@.5:think:hold:scroll'],'Washington listened to both — and sided with Hamilton. The bank opened in 1791.',[]],
+['bank',['ham_c@.3:smile:hold:coin','cit1@.75:grin'],'The U.S. Mint began making American coins, with the dollar as the main unit.',[['cit1','Real American money!']]],
+['harbor',['ham_c@.5:smile:point'],'He also created a fleet of revenue cutters to catch smugglers. It grew into today\'s U.S. Coast Guard!',[]]]);
+
+ST(9,'T3',[
+['room',['ham_c@.3:smile:point','jeff@.72:smile:point'],'Hamilton wanted a nation of cities, banks, and factories. Jefferson dreamed of a nation of small farms.',[['ham_c','Industry will make us strong!'],['jeff','Farmers keep us free!']]],
+['hall',['ham_c@.3:smile','jeff@.72:smile'],'Their followers formed America\'s first political parties: Federalists and Democratic-Republicans.',[]],
+['room',['wash_p@.5:worry'],'Washington hated parties. He feared they would divide the country. But they were here to stay.',[['wash_p','Please, no factions!']]]]);
+
+ST(9,'S3',[
+['farm',['farmer@.3:angry:hold:pitchfork','cit2@.72:angry'],'In 1794, farmers in western Pennsylvania refused to pay a new whiskey tax and attacked tax collectors.',[['farmer','No tax on our whiskey!']]],
+['field',['wash_s@.3:neutral:point','ham_s@.72:smile:hold:sword'],'Washington himself rode out with about 13,000 militia. Hamilton rode at his side.',[]],
+['farm',['ham_c@.25:smile','eliza@.55:smile','phil@.82:smile'],'The rebels melted away. The new government had shown it could enforce its laws. In January 1795, Alexander resigned to earn money for his growing family.',[]]]);
+
+WB(9,'The Treasury Secretary: Check Your Memory',[
+{k:'quiz',q:'Why was the capital moved to the Potomac River?',o:['It was warmer','A deal between Hamilton, Jefferson and Madison','Washington\'s house was nearby','The king ordered it'],a:1,why:'It was part of the 1790 dinner compromise.'},
+{k:'quiz',q:'Which job did Hamilton hold under Washington?',o:['Vice President','Secretary of the Treasury','Chief Justice','Ambassador to France'],a:1,why:'He ran the nation\'s money.'},
+{k:'match',q:'Match the Hamilton invention:',pairs:[['Revenue cutters','became the Coast Guard'],['U.S. Mint','makes American coins'],['National bank','holds money, makes loans']]},
+{k:'tf',q:'True or false: Hamilton and Jefferson agreed on everything.',a:false,why:'They disagreed about banks, farms vs factories, and more.'},
+{k:'fill',q:'The new parties were called Federalists and Democratic-______.',a:['republicans','republican'],why:'Jefferson\'s party was the Democratic-Republicans.'}]);
+
+WB(9,'The Treasury Secretary: Think & Create',[
+{k:'vocab',words:[['**debt**','money that is owed'],['**tariff**','a tax on imported goods'],['**political party**','a group with shared ideas about government']]},
+{k:'html',h:'<div class="q">⚖️ Hamilton vs. Jefferson</div><table class="tbl"><tr><th>Hamilton</th><th>Jefferson</th></tr><tr><td>Cities, banks, factories</td><td>Small farms</td></tr><tr><td>Strong national government</td><td>More power to the states</td></tr><tr><td>Federalist</td><td>Democratic-Republican</td></tr></table>'},
+{k:'write',q:'Whose vision would YOU choose — farms or factories? Give two reasons. (There\'s no wrong answer!)',rows:4},
+{k:'search',q:'Find the money words:',words:['DOLLAR','MINT','BANK','DEBT','COIN','TARIFF'],seed:29}]);
+
+/* Chapter 11: Honor, Heartbreak & Legacy */
+OP(10,'Honor, Heartbreak & Legacy','1791–1854 · The Final Chapters','church',['eliza@.35:smile','ham_o@.7:neutral'],'Alexander\'s greatest work was done, but his hardest years were ahead. Some of this chapter is sad, because real history has sad parts too.');
+
+ST(10,'S3',[
+['room:cool',['ham_c@.5:sad:hold:letter'],'Alexander made a serious mistake in the 1790s. He broke Eliza\'s trust by having a secret relationship with another woman. Her husband blackmailed him for money.',[['~ham_c','What have I done?']]],
+['room',['ham_c@.5:worry:write:quill'],'Years later, people accused him of misusing government money. To prove he hadn\'t, Alexander published the whole embarrassing story in 1797.',[['~ham_c','Better the truth from me.']]],
+['room:cool',['eliza@.3:sad','ham_c@.72:sad'],'It cleared his name as a public official, but it deeply hurt his family. Eliza was wounded. In time she forgave him, and they stayed together.',[['ham_c','I am so sorry, Eliza.'],['eliza','It will take time.']]]]);
+
+ST(10,'T3',[
+['federal',['wash_p@.3:smile:hold:scroll','ham_c@.75:smile:write:quill'],'In 1796 Washington announced he would not run for a third term. Hamilton helped him write the Farewell Address, warning against bitter parties.',[['wash_p','Two terms are enough.']]],
+['farm',['wash_p@.5:neutral'],'Washington went home to Mount Vernon. He died in December 1799.',[]],
+['church',['cit1@.3:sad','wom1@.72:sad'],'The nation mourned.',[]]]);
+
+ST(10,'S2',[
+['hall',['jeff@.3:neutral:hold:scroll','burr@.72:neutral:hold:scroll'],'In 1800 Thomas Jefferson and Aaron Burr tied in the Electoral College. The House of Representatives had to break the tie.',[]],
+['room',['ham_c@.3:think:point','madi@.72:smile'],'Hamilton disliked Jefferson\'s politics but distrusted Burr even more. He urged friends to choose Jefferson. After 36 votes, Jefferson won, and Burr became Vice President.',[['ham_c','Jefferson has principles. Burr has ambition.']]]]);
+
+ST(10,'G4',[
+['room:warm',['ham_c@.3:smile','phil_t@.72:smile'],'Alexander adored his eldest son, Philip, a bright 19-year-old law student.',[]],
+['hall',['phil_t@.3:angry','eack@.72:angry'],'In 1801 a lawyer named George Eacker made harsh remarks about Hamilton. Philip, defending his father\'s honor, challenged him to a duel.',[]],
+['dawn',['phil_t@.5:sad'],'Dueling was an old, dangerous tradition for settling arguments. Philip was shot and died the next day.',[]],
+['church',['ham_c@.3:sad','eliza@.72:sad'],'The family was devastated. Alexander never fully recovered from losing his son.',[]]]);
+
+ST(10,'T3',[
+['room',['burr@.3:angry:hold:letter','ham_c@.72:neutral'],'By 1804 Hamilton and Aaron Burr had been rivals for years. When Burr ran for governor of New York, Hamilton spoke out against him. Burr demanded an apology.',[]],
+['room',['burr@.3:angry:point','ham_c@.72:worry'],'Hamilton would not back down. Burr challenged him to a duel.',[]],
+['dawn',['burr@.3:neutral:hold:pistol','ham_o@.72:neutral:hold:pistol'],'July 11, 1804. Dawn, Weehawken, New Jersey, across the river from New York.',[]]]);
+
+ST(10,'S3',[
+['dawn',['burr@.3:worry','ham_o@.72:sad'],'Both men fired. Hamilton was wounded. He had written that he did not plan to shoot at Burr; historians still debate exactly what happened.',[['*','BANG!']]],
+['room:cool',['eliza@.3:sad','ang@.55:sad','ham_o@.82:sad'],'Surrounded by his family, Alexander Hamilton died the next afternoon, July 12, 1804.',[]],
+['church',['cit1@.2:sad','wom1@.45:sad','kid2@.7:sad','cit3@.9:sad'],'Thousands came to his funeral at Trinity Church in New York City.',[]]]);
+
+ST(10,'W4',[
+['mansion',['eliza@.5:smile:hold:book'],'Eliza lived 50 more years. She raised their children, gathered Alexander\'s papers, and made sure his story was told.',[]],
+['room:warm',['eliza@.3:smile','kid1@.62:smile','kid2@.85:smile'],'In 1806 she helped start the city\'s first private orphanage, caring for children who, like Alexander, had lost their parents.',[]],
+['federal',['ham_c@.5:smile:hold:coin'],'His ideas still shape America: the Treasury, the Coast Guard, our banking system, and the Federalist Papers. His face is on the $10 bill.',[]],
+['sunset',['ham_c@.3:think','wom2@.55:think','cit4@.8:think'],'Hamilton spoke out against slavery and helped found a society in New York to end it. But slavery continued across the young nation, and historians still study how he and the other founders lived with that contradiction. America\'s story includes big ideas and hard truths.',[]]]);
+
+WB(10,'Honor, Heartbreak & Legacy: Check Your Memory',[
+{k:'quiz',q:'What did Hamilton help Washington write in 1796?',o:['The Declaration','The Farewell Address','The Bill of Rights','The Treaty of Paris'],a:1,why:'It warned about political parties and foreign entanglements.'},
+{k:'tf',q:'True or false: Jefferson and Burr tied in the 1800 election.',a:true,why:'The House broke the tie after 36 votes.'},
+{k:'quiz',q:'What happened on July 11, 1804?',o:['The Treaty of Paris','Hamilton and Burr\'s duel','Washington\'s inauguration','The Constitution was signed'],a:1,why:'It took place in Weehawken, New Jersey. Hamilton died the next day.'},
+{k:'order',q:'Order these:',items:['Washington\'s Farewell Address','Election of 1800','Philip Hamilton dies','Hamilton–Burr duel','Eliza helps start an orphanage']},
+{k:'fill',q:'Hamilton\'s wife was named ______.',a:['eliza','elizabeth'],why:'She lived to age 97.'}]);
+
+WB(10,'Honor, Heartbreak & Legacy: Think & Create',[
+{k:'vocab',words:[['**legacy**','what a person leaves behind'],['**duel**','a formal fight between two people, now illegal'],['**forgive**','to stop being angry at someone']]},
+{k:'cards',q:'Legacy Flip! Where do we still see Hamilton\'s work?',cards:[['U.S. Coast Guard','Grew from the revenue cutters he started.'],['The $10 bill','Hamilton\'s face is on it.'],['Federalist Papers','Courts still quote them.'],['New York Post','The newspaper he founded in 1801.']]},
+{k:'write',q:'Eliza spent 50 years protecting Alexander\'s story. What\'s one thing you\'d want people to remember about YOU in 50 years?',rows:4},
+{k:'draw',q:'Design a statue or monument for Eliza!',h:130}]);
+
+/* ===== Back matter ===== */
+const HP=(h,first,cls)=>PAGES.push({t:'html',ch:11,first:first?1:0,h:typeof h==='function'?h:()=>h,cls});
+const TL=(arr)=>`<div class="tl">${arr.map(a=>`<div class="te ${a[2]?'big':''}"><b>${a[0]}</b><span>${a[1]}</span></div>`).join('')}</div>`;
+HP(`<h1>Civics Corner: The Three Branches</h1><p style="font-size:12.5px">The Constitution splits power into three branches, so no one person or group can take over. Hamilton explained this in the Federalist Papers.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin:6px 0">
+<div style="background:#dbe7ff;border:3px solid #14213d;border-radius:10px;padding:6px;text-align:center"><div style="font-size:26px">🏛️</div><b style="font-family:Bangers;font-size:17px;color:#14213d">LEGISLATIVE</b><div style="font-size:12px">Congress<br>Senate + House</div><div style="font-size:12px;margin-top:3px;font-weight:700;color:#b3202a">MAKES the laws</div></div>
+<div style="background:#ffe3e3;border:3px solid #14213d;border-radius:10px;padding:6px;text-align:center"><div style="font-size:26px">🇺🇸</div><b style="font-family:Bangers;font-size:17px;color:#14213d">EXECUTIVE</b><div style="font-size:12px">President<br>+ Cabinet</div><div style="font-size:12px;margin-top:3px;font-weight:700;color:#b3202a">CARRIES OUT the laws</div></div>
+<div style="background:#e0f5e0;border:3px solid #14213d;border-radius:10px;padding:6px;text-align:center"><div style="font-size:26px">⚖️</div><b style="font-family:Bangers;font-size:17px;color:#14213d">JUDICIAL</b><div style="font-size:12px">Supreme Court<br>+ other courts</div><div style="font-size:12px;margin-top:3px;font-weight:700;color:#b3202a">EXPLAINS the laws</div></div></div>
+<h2>Checks &amp; balances in action</h2><ul><li>Congress passes a bill → the <b>President can veto it</b> (say no).</li><li>Congress can <b>override a veto</b> with a two-thirds vote.</li><li>The President picks judges → the <b>Senate must approve</b> them.</li><li>Courts can <b>strike down</b> laws that break the Constitution.</li><li>Congress can <b>impeach</b> (formally accuse) a President who commits serious wrongs.</li></ul>
+<h2>Hamilton's cabinet seat</h2><p>The "Cabinet" is the President's team of advisors. Hamilton led the <b>Treasury</b>, Jefferson led <b>State</b> (foreign affairs). Today there are 15 executive departments.</p>`,1);
+
+HP(`<h1>The Bill of Rights</h1><p style="font-size:12.5px">Ten amendments added in 1791 to protect your basic freedoms.</p><table class="tbl"><tr><th>#</th><th>What it protects (kid version)</th></tr>
+<tr><td>1</td><td>Speech, religion, press, gathering peacefully, asking government to fix problems</td></tr><tr><td>2</td><td>The right to keep and bear arms (people still debate exactly what this means)</td></tr><tr><td>3</td><td>Soldiers can't force their way into your home</td></tr><tr><td>4</td><td>No unreasonable searches of you or your things</td></tr><tr><td>5</td><td>Fair treatment when accused of a crime; you don't have to testify against yourself</td></tr><tr><td>6</td><td>A fast, fair trial with a lawyer</td></tr><tr><td>7</td><td>Juries in many court cases</td></tr><tr><td>8</td><td>No cruel or unusual punishments</td></tr><tr><td>9</td><td>You have other rights even if they aren't listed</td></tr><tr><td>10</td><td>Powers not given to the national government belong to the states and the people</td></tr></table>`);
+
+HP(()=>`<h1>Timeline, Part 1</h1>${TL([['1607','First lasting English colony, Jamestown, Virginia'],['c.1755–57','Alexander Hamilton born on Nevis',1],['1765','Stamp Act protests'],['1768','Hamilton\'s mother dies'],['1770','Boston Massacre'],['1772','Hurricane, letter, and a ticket to America',1],['1773','Boston Tea Party; Hamilton starts college'],['1774','Intolerable Acts; First Continental Congress'],['1775','Lexington & Concord begin the war'],['1776','Declaration of Independence; Hamilton leads artillery',1],['1776–77','Trenton and Princeton victories'],['1777','Hamilton joins Washington\'s staff; Valley Forge winter'],['1778','Battle of Monmouth'],['1780','Hamilton marries Eliza Schuyler (Dec 14)',1],['1781','Redoubt 10 & Yorktown (Oct)',1],['1782','Philip Hamilton born; Laurens killed'],['1783','Treaty of Paris; Washington resigns']])}`);
+HP(()=>`<h1>Timeline, Part 2</h1>${TL([['1786','Shays\' Rebellion; Annapolis meeting'],['1787','Constitutional Convention; Constitution signed (Sept 17)',1],['1787–88','Federalist Papers published'],['1788','New York ratifies (July 26)'],['1789','Washington inaugurated; Hamilton becomes Treasury Secretary',1],['1790','Dinner deal: capital moves to the Potomac'],['1791','National bank; Bill of Rights ratified'],['1792','U.S. Mint begins coining money'],['1794','Whiskey Rebellion'],['1795','Hamilton resigns from Treasury'],['1796','Washington\'s Farewell Address'],['1797','Hamilton publishes his Reynolds pamphlet'],['1799','Washington dies (Dec 14)'],['1800','Jefferson–Burr tie election'],['1801','Philip dies; Hamilton founds the New York Post'],['1804','Hamilton–Burr duel (July 11); Hamilton dies July 12',1],['1806','Eliza helps found an orphanage'],['1854','Eliza dies at age 97']])}`);
+
+const GL=[['amendment','a change or addition to the Constitution'],['Anti-Federalist','someone who feared a too-powerful national government'],['artillery','large guns such as cannons'],['bayonet','a blade fixed to the end of a musket'],['boycott','refusing to buy something as a protest'],['checks and balances','each branch of government can limit the others'],['colony','land ruled by a faraway country'],['compromise','each side gives up something to agree'],['constitution','the basic rules of a government'],['debt','money that is owed'],['delegate','someone chosen to speak for others'],['duel','a formal fight between two people, now illegal'],['Federalist','someone who supported the Constitution'],['independence','being free to govern yourself'],['legacy','what a person leaves behind'],['Loyalist','a colonist who stayed loyal to the king'],['militia','citizens who train to fight in emergencies'],['orphan','a child whose parents have died'],['pamphlet','a short booklet sharing an argument'],['Parliament','Britain\'s lawmaking body'],['ratify','to officially approve'],['redoubt','a small fort'],['siege','surrounding a place to make it give up'],['tariff','a tax on imported goods'],['tax','money people must pay to a government'],['treaty','an agreement between countries']];
+HP(()=>`<h1>Glossary, A–L</h1><div class="gl">${GL.slice(0,13).map(g=>`<div><b>${g[0]}</b> — ${g[1]}</div>`).join('')}</div>`);
+HP(()=>`<h1>Glossary, L–T</h1><div class="gl">${GL.slice(13).map(g=>`<div><b>${g[0]}</b> — ${g[1]}</div>`).join('')}</div>`);
+
+WB(11,'On Broadway: Watch For It!',[
+{k:'note',t:'Tuck this in your pocket! In the theater, you can tick these off at home afterward. (Remember: the show squeezes decades into a few hours and changes some things for the stage.)'},
+{k:'checks',q:'👀 People I spotted on stage:',items:['Alexander Hamilton','Aaron Burr','Eliza Schuyler','Angelica Schuyler','Peggy Schuyler','George Washington','Marquis de Lafayette','John Laurens','Hercules Mulligan','King George III','Thomas Jefferson','James Madison']},
+{k:'checks',q:'📜 History moments I recognized:',items:['The war against Britain','The victory at Yorktown','The Federalist Papers','The plan to pay the nation\'s debts','The dinner deal about the capital','Washington stepping down','The 1800 election','The duels']}],'EXTRAS');
+WB(11,'Real or Stage Magic?',[
+{k:'cards',q:'Guess whether each is REAL history or STAGE MAGIC, then tap to check!',cards:[['Hamilton wrote most of the Federalist Papers.','REAL! About 51 of 85 essays.'],['King George III sang to the colonists.','STAGE MAGIC! Great fun, but invented.'],['Jefferson was in France while the Constitution was written.','REAL! He was the U.S. minister in Paris.'],['Hamilton, Jefferson and Madison made a dinner deal about the capital.','REAL! The 1790 compromise.'],['Eliza had two sisters, Angelica and Peggy.','REAL! And Angelica wrote Hamilton often.'],['Everyone in 1776 looked like today\'s actors and rapped.','STAGE MAGIC! The cast shows a diverse modern America telling the story.'],['Burr and Hamilton were New York lawyers who sometimes worked together.','REAL! Rivals and sometimes co-counsel.'],['Hamilton led the charge on Redoubt 10 at Yorktown.','REAL! With bayonets, in the dark.']]},
+{k:'note',t:'Why does the show change things? A play has to be dramatic, fast and musical. Real life is slower and messier. Both are worth knowing!'}],'EXTRAS');
+WB(11,'After the Show: Talk It Over',[
+{k:'write',q:'Which moment in the musical surprised you most? Was it something you\'d already learned in this book?',rows:3},
+{k:'write',q:'Which character would you most like to meet, and what would you ask them?',rows:3},
+{k:'write',q:'Name one thing the show changed or added compared with real history.',rows:3},
+{k:'draw',q:'Draw your favorite costume or scene from the show!',h:140}],'EXTRAS');
+
+WB(11,'Final Challenge, Part 1',[
+{k:'quiz',q:'Where was Alexander Hamilton born?',o:['Boston','Nevis','Paris','Virginia'],a:1,why:'A tiny Caribbean island.'},
+{k:'quiz',q:'Who commanded the Continental Army and became the first President?',o:['John Adams','George Washington','Thomas Jefferson','Benjamin Franklin'],a:1,why:'Washington did both!'},
+{k:'order',q:'Put these big events in order:',items:['Hamilton\'s letter about the hurricane','Declaration of Independence','Battle of Yorktown','Constitution signed','Hamilton becomes Treasury Secretary']},
+{k:'match',q:'Match the person:',pairs:[['Eliza Schuyler','Hamilton\'s wife'],['Aaron Burr','Hamilton\'s rival and Vice President'],['James Madison','Father of the Constitution'],['Lafayette','French friend who helped win the war']]}],'FINAL CHALLENGE');
+WB(11,'Final Challenge, Part 2',[
+{k:'quiz',q:'Which are the three branches of government?',o:['Red, white, blue','Legislative, executive, judicial','Federal, state, local','Army, navy, air force'],a:1,why:'Law-making, law-enforcing, and law-explaining.'},
+{k:'fill',q:'How many essays are in the Federalist Papers?',a:['85','eighty-five'],why:'Hamilton wrote about 51 of them.'},
+{k:'tf',q:'True or false: Hamilton helped create the U.S. Mint and the Coast Guard\'s ancestor.',a:true,why:'He did, as Treasury Secretary.'},
+{k:'write',q:'In your own words: Who was Alexander Hamilton, and why does he matter?',rows:5},
+{k:'scramble',q:'Last scramble!',words:[['hamilton','our hero'],['yorktown','final big battle'],['constitution','America\'s rulebook']]}],'FINAL CHALLENGE');
+
+PAGES.push({t:'html',ch:11,cls:'cert',h:()=>`<h1>CERTIFICATE</h1><div style="font-weight:700">of History Detective Excellence</div><div>This certifies that</div><input id="nm" placeholder="Type your name" value="${esc(STATE.name||'')}"><div style="font-size:14px;font-weight:700;padding:0 20px">has completed <b>Alexander Hamilton: The Graphic Novel &amp; Workbook</b> and is ready for Broadway!</div><div class="big" id="cs">★ ${STATE.stars} stars earned ★</div><div style="font-size:13px">Now go enjoy the show!</div>`,after:(host)=>{const n=host.querySelector('#nm');if(n)n.oninput=()=>{STATE.name=n.value;save()}}});
+
+const GEMIMG={"0": "img/p001.jpg", "1": "img/p002.jpg", "2": "img/p003.jpg", "3": "img/p004.jpg", "4": "img/p005.jpg", "6": "img/p007.jpg", "7": "img/p008.jpg", "8": "img/p009.jpg", "9": "img/p010.jpg", "10": "img/p011.jpg", "11": "img/p012.jpg", "12": "img/p013.jpg", "15": "img/p016.jpg", "16": "img/p017.jpg", "17": "img/p018.jpg", "18": "img/p019.jpg", "19": "img/p020.jpg", "20": "img/p021.jpg", "21": "img/p022.jpg", "24": "img/p025.jpg", "25": "img/p026.jpg", "26": "img/p027.jpg", "27": "img/p028.jpg", "28": "img/p029.jpg", "29": "img/p030.jpg", "30": "img/p031.jpg", "33": "img/p034.jpg", "34": "img/p035.jpg", "35": "img/p036.jpg", "36": "img/p037.jpg", "37": "img/p038.jpg", "38": "img/p039.jpg", "39": "img/p040.jpg", "42": "img/p043.jpg", "43": "img/p044.jpg", "44": "img/p045.jpg", "45": "img/p046.jpg", "46": "img/p047.jpg", "47": "img/p048.jpg", "48": "img/p049.jpg", "51": "img/p052.jpg", "52": "img/p053.jpg", "53": "img/p054.jpg", "54": "img/p055.jpg", "55": "img/p056.jpg", "56": "img/p057.jpg", "57": "img/p058.jpg", "60": "img/p061.jpg", "61": "img/p062.jpg", "62": "img/p063.jpg", "63": "img/p064.jpg", "64": "img/p065.jpg", "65": "img/p066.jpg", "66": "img/p067.jpg", "69": "img/p070.jpg", "70": "img/p071.jpg", "71": "img/p072.jpg", "72": "img/p073.jpg", "73": "img/p074.jpg", "74": "img/p075.jpg", "75": "img/p076.jpg", "78": "img/p079.jpg", "79": "img/p080.jpg", "80": "img/p081.jpg", "81": "img/p082.jpg", "82": "img/p083.jpg", "83": "img/p084.jpg", "84": "img/p085.jpg", "87": "img/p088.jpg", "88": "img/p089.jpg", "89": "img/p090.jpg", "90": "img/p091.jpg", "91": "img/p092.jpg", "92": "img/p093.jpg", "93": "img/p094.jpg", "96": "img/p097.jpg", "97": "img/p098.jpg", "98": "img/p099.jpg", "99": "img/p100.jpg", "100": "img/p101.jpg", "101": "img/p102.jpg", "102": "img/p103.jpg", "103": "img/p104.jpg", "106": "img/p107.jpg", "107": "img/p108.jpg", "108": "img/p109.jpg", "109": "img/p110.jpg", "110": "img/p111.jpg", "111": "img/p112.jpg"};
+Object.keys(GEMIMG).forEach(i=>{PAGES[i].img=GEMIMG[i]});
+
+
+boot();if("serviceWorker"in navigator&&location.protocol!=="file:"){addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}))}</script></body></html>
